@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('')
+Route::get('baby/{baby}/progress', 'BabiesController@progress');
+Route::post('baby/progress', 'BabiesController@simpanprogress');
 Route::resource('baby', 'BabiesController');
+// Route::get('progress/{baby}', 'ProgressBabiesController@show');
+// Route::resource('progress', 'ProgressBabiesController');

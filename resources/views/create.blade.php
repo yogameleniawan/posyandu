@@ -55,7 +55,7 @@
                      <div class="col-4">   
                         <div class="form-group">
                            <label for="anak_ke">Anak ke-</label>
-                           <input type="number" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke" id="anak_ke" data-toggle="tooltip" data-placement="right" title="Anak Ke-" value="{{ old('anak_ke') }}">
+                           <input type="number" min="1" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke" id="anak_ke" data-toggle="tooltip" data-placement="right" title="Anak Ke-" value="{{ old('anak_ke') }}">
                            @error('anak_ke')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                         </div>
                      </div>
@@ -97,12 +97,12 @@
                      </div>
                      <div class="form-group">
                         <label for="panjang_bayi">Panjang Bayi</label>
-                        <input type="number" placeholder="dalam cm" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Tinggi Badan Bayi Saat Lahir" value="{{ old('panjang_bayi') }}">
+                        <input type="number" min="1" placeholder="dalam cm" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Tinggi Badan Bayi Saat Lahir" value="{{ old('panjang_bayi') }}">
                         @error('panjang_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
                      <div class="form-group">
                         <label for="berat_bayi">Berat Bayi</label>
-                        <input type="number" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ old('berat_bayi') }}">
+                        <input type="number" min="1" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ old('berat_bayi') }}">
                         @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                   </div>
                </div>

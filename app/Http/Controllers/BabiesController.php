@@ -2,12 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\ProgressBaby;
 use App\Baby;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use DateTime;
+use Illuminate\Foundation\Console\Presets\React;
 
 class BabiesController extends Controller
 {
+    
+    public function progress(Baby $baby){
+        $progress = DB::table('babies AS b')
+        ->join('progress_babies AS p', 'b.id', '=', 'p.id_bayi')
+        ->select('b.nama', 'b.nama_ibu', 'b.nama_ayah', 'b.tempat_lahir', 'b.tanggal_lahir', 'b.anak_ke', 'b.alamat', 'b.jenis_kelamin', 'b.golongan_darah', 'p.id_bayi', 'p.bulan_ke', 'p.panjang_bayi', 'p.berat_bayi')
+        ->where('id_bayi', $baby->id)
+        ->get();
+        $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
+        // dd($progress);
+        if(count($progress) == 0){
+            $data = [
+                'baris' => $baby,
+                'progress' => null,
+                'jk' => $jk
+            ];
+        }else{
+            $data = [
+                'baris' => $baby,
+                'progress' => $progress,
+                'jk' => $jk
+            ];
+        }
+        return view('progress.index', $data);
+    }
+
+    public function simpanprogress(Request $request){
+        $request->validate([
+            'panjang_bayi' => 'required',
+            'berat_bayi' => 'required'
+        ]);
+        ProgressBaby::create($request->all());
+        return redirect('/baby/'.$request->id_bayi.'/progress')->with('status', "Data baru berhasil ditambahkan");
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -50,13 +88,13 @@ class BabiesController extends Controller
             'panjang_bayi' => 'required',
             'berat_bayi' => 'required'
         ]);
-
+        
         $request->nama = ucwords($request->nama);
         $request->nama_ibu = ucwords($request->nama_ibu);
         $request->nama_ayah = ucwords($request->nama_ayah);
         $request->tempat_lahir = ucfirst($request->tempat_lahir);
         $request->alamat = ucfirst($request->alamat);
-
+        
         $request->tanggal_lahir = mktime(
             (int)substr($request->tanggal_lahir, 11, 2), // jam
             (int)substr($request->tanggal_lahir, 14, 2), //menit
@@ -85,7 +123,6 @@ class BabiesController extends Controller
             'panjang_bayi' => $request->panjang_bayi,
             'berat_bayi' => $request->berat_bayi
         ]);
-
 
         // otomatis mengisi yang di fillable tanpa inisialisasi satu per satu
         // Baby::create($request->all());
@@ -152,6 +189,7 @@ class BabiesController extends Controller
      */
     public function edit(Baby $baby)
     {
+        $umur = $this->hitung_umur(date('Y-m-d', $baby->tanggal_lahir));
         $laki = '';$perempuan = '';
         switch($baby->jenis_kelamin){
             case 1: $laki = 'checked';
@@ -180,7 +218,8 @@ class BabiesController extends Controller
             'b' => $b,
             'ab' => $ab,
             'o' => $o,
-            'bt' => $bt
+            'bt' => $bt,
+            'umur' => $umur
         ];
         return view('edit', $data);
     }

@@ -5,8 +5,15 @@
 <div class="container">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Detail Bayi</h1>
-  <p class="mb-4">Informasi dan perkembangan bayi</p>
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="h3 mb-2 text-gray-800">Detail Bayi</h1>
+      <p class="mb-4">Informasi dan perkembangan bayi</p>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+      <a href="{{ $baby->id }}/progress" class="btn btn-info shadow-sm align-self-center mt-n3">Perkembangan Bayi</a>
+    </div>
+  </div>
 
   <!-- DataTales Example -->
   <div class="card shadow-sm mb-4">
