@@ -5,8 +5,8 @@
 <div class="container">
 
    <!-- Page Heading -->
-   <h1 class="h3 mb-2 text-gray-800">Perkembangan Bayi</h1>
-   <p class="mb-4">Halaman ini untuk memantau perkembangan bayi.</p>
+   <h1 class="h3 mb-2 text-gray-800">Pertumbuhan Bayi</h1>
+   <p class="mb-4">Halaman ini untuk memantau pertumbuhan bayi.</p>
 
    <!-- Area Chart -->
    <div class="card shadow-sm mb-4">
@@ -34,7 +34,7 @@
       </div>
    </div>
 
-   <!-- DataTales Example -->
+   <!-- DataTables Example -->
    <div class="card shadow-sm mb-4">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">{{ $baris->nama }}</h6>
