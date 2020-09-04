@@ -63,7 +63,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(231,74,59,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [4.4, 5.8, 7.1, 8, 8.8, 9.4, 9.9, 10.3, 10.7, 11, 11.4, 11.7, 12],
+      data: [4.3, 5.5, 6.6, 7.5, 8.2, 8.8, 9.3, 9.8, 10.2, 10.5, 10.9, 11.2, 11.5],
       },
       {
       label: "Batas Ideal",
@@ -78,7 +78,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(246,194,62,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [3.9, 5.1, 6.3, 7.1, 7.8, 8.4, 8.8, 9.2, 9.6, 9.9, 10.2, 10.5, 10.8],
+      data: [3.7, 4.8, 5.9, 6.6, 7.3, 7.8, 8.2, 8.6, 9, 9.3, 9.6, 9.9, 10.1],
       },
       {
       label: "Ideal",
@@ -93,7 +93,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(54,185,204,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [3.3, 4.4, 5.5, 6.4, 7, 7.5, 7.9, 8.3, 8.6, 8.9, 9.2, 9.4, 9.6],
+      data: [3.2, 4.2, 5.1, 5.8, 6.4, 6.9, 7.3, 7.6, 7.9, 8.2, 8.5, 8.7, 8.9],
       },
       {
       label: "Batas Ideal",
@@ -108,7 +108,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(246,194,62,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [2.9, 3.9, 4.9, 5.7, 6.2, 6.7, 7.1, 7.4, 7.8, 8, 8.2, 8.5, 8.7],
+      data: [2.8, 3.6, 4.5, 5.1, 5.7, 6.1, 6.5, 6.8, 7, 7.3, 7.5, 7.7, 7.9],
       },
       {
       label: "Terlalu Kurus",
@@ -123,7 +123,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(231,74,59,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [2.5, 3.4, 4.3, 5, 5.5, 6, 6.3, 6.6, 6.9, 7.1, 7.3, 7.5, 7.7],
+      data: [2.4, 3.2, 4, 4.5, 5, 5.4, 5.7, 6, 6.2, 6.5, 6.7, 6.9, 7],
       },
     ],
   },

@@ -33,8 +33,12 @@ class BabiesController extends Controller
                 'jk' => $jk
             ];
         }
+        // dd($progress);
         echo view('progress.index', $data);
+        if($baby->jenis_kelamin == 1)
         echo view('progress.kms-laki');
+        else if($baby->jenis_kelamin == 2)
+            echo view('progress.kms-perempuan');
 
     }
 
