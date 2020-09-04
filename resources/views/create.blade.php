@@ -97,12 +97,12 @@
                      </div>
                      <div class="form-group">
                         <label for="panjang_bayi">Panjang Bayi</label>
-                        <input type="number" min="1" placeholder="dalam cm" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Tinggi Badan Bayi Saat Lahir" value="{{ old('panjang_bayi') }}">
+                        <input type="number" min="1" placeholder="dalam cm" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Tinggi Badan Bayi Saat Lahir" value="{{ old('panjang_bayi') }}" step="any">
                         @error('panjang_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
                      <div class="form-group">
                         <label for="berat_bayi">Berat Bayi</label>
-                        <input type="number" min="1" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ old('berat_bayi') }}">
+                        <input type="number" min="1" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ old('berat_bayi') }}" step="any">
                         @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                   </div>
                </div>

@@ -14,7 +14,8 @@
          <h6 class="m-0 font-weight-bold text-primary">Data Bayi</h6>
       </div>
       <div class="card-body container-fluid">
-         <form method="post" action="/baby">
+         @method('patch')
+         <form method="post" action="/baby/{{ $baby->id }}">
             @csrf
             <div class="row">
                <div class="col-xl-6 mr-auto">
@@ -116,12 +117,12 @@
                      <hr class="divider">
                      <div class="form-group">
                         <label for="berat_bayi">Panjang Sekarang (cm)</label>
-                        <input type="number" placeholder="dalam cm" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" min="{{ $baby->berat_bayi }}">
-                        @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                        <input type="number" placeholder="dalam cm" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Panjang Badan Bayi Saat Ini" min="1">
+                        @error('panjang_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
                      <div class="form-group">
                         <label for="berat_bayi">Berat Sekarang (kg)</label>
-                        <input type="number" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" min="{{ $baby->berat_bayi }}">
+                        <input type="number" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Ini" min="1">
                         @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
                </div>

@@ -33,7 +33,9 @@ class BabiesController extends Controller
                 'jk' => $jk
             ];
         }
-        return view('progress.index', $data);
+        echo view('progress.index', $data);
+        echo view('progress.kms-laki');
+
     }
 
     public function simpanprogress(Request $request){
@@ -233,7 +235,7 @@ class BabiesController extends Controller
      */
     public function update(Request $request, Baby $baby)
     {
-        //
+        return $request;
     }
 
     /**
