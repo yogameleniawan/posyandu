@@ -48,7 +48,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [3.3, 4.4, 5.5, 6.4, 7, 7.5, 7.9, 8.3, 8.6, 8.9, 9.2, 9.4, 9.6],
+      data: [<?= $dtProgress[0]; ?>,<?= $dtProgress[1]; ?>,<?= $dtProgress[2]; ?>,<?= $dtProgress[3]; ?>,<?= $dtProgress[4]; ?>,<?= $dtProgress[5]; ?>,<?= $dtProgress[6]; ?>,<?= $dtProgress[7]; ?>,<?= $dtProgress[8]; ?>,<?= $dtProgress[9]; ?>,<?= $dtProgress[10]; ?>,<?= $dtProgress[11]; ?>,<?= $dtProgress[12]; ?>],
       },
       {
       label: "Terlalu Gemuk",
@@ -66,7 +66,7 @@ var myLineChart = new Chart(ctx, {
       data: [4.4, 5.8, 7.1, 8, 8.8, 9.4, 9.9, 10.3, 10.7, 11, 11.4, 11.7, 12],
       },
       {
-      label: "Batas Ideal",
+      label: "Batas Ideal Atas",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0)",
       borderColor: "rgba(246,194,62,0.2)",
@@ -96,7 +96,7 @@ var myLineChart = new Chart(ctx, {
       data: [3.3, 4.4, 5.5, 6.4, 7, 7.5, 7.9, 8.3, 8.6, 8.9, 9.2, 9.4, 9.6],
       },
       {
-      label: "Batas Ideal",
+      label: "Batas Ideal Bawah",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0)",
       borderColor: "rgba(246,194,62,0.2)",

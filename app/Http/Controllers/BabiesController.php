@@ -21,24 +21,22 @@ class BabiesController extends Controller
         $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
         // dd($progress);
         if(count($progress) == 0){
-            $data = [
-                'baris' => $baby,
-                'progress' => null,
-                'jk' => $jk
-            ];
+            $progress = null;
         }else{
-            $data = [
-                'baris' => $baby,
-                'progress' => $progress,
-                'jk' => $jk
-            ];
+            $progress = $progress;
         }
-        // dd($progress);
+        $dataProgress = $this->dataProgress($progress, $baby);
+        $data = [
+            'baris' => $baby,
+            'progress' => $progress,
+            'jk' => $jk,
+            'dtProgress' => $dataProgress
+        ];
         echo view('progress.index', $data);
         if($baby->jenis_kelamin == 1)
-        echo view('progress.kms-laki');
+            echo view('progress.kms-laki', $data);
         else if($baby->jenis_kelamin == 2)
-            echo view('progress.kms-perempuan');
+            echo view('progress.kms-perempuan', $data);
 
     }
 
@@ -49,6 +47,25 @@ class BabiesController extends Controller
         ]);
         ProgressBaby::create($request->all());
         return redirect('/baby/'.$request->id_bayi.'/progress')->with('status', "Data baru berhasil ditambahkan");
+    }
+
+    public function dataProgress($progress, $baby){
+        $data[0] = $baby->berat_bayi;
+        if($progress == null){
+            for($i = 1; $i<=12 ; $i++){
+                $data[$i] = null;
+            }
+            return $data;
+        }else{
+            for($i = 1; $i<=12 ; $i++){
+                if($i<=count($progress)){
+                    $data[$i] = $progress[$i-1]->berat_bayi;
+                }else if($i > count($progress)){
+                    $data[$i] = null;
+                }
+            }
+            return $data;
+        }
     }
 
 

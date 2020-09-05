@@ -56,9 +56,9 @@
               <td>{{ $baby->nama_ibu }}</td>
               <td>{{ $baby->nama_ayah }}</td>
               <td>
-                <a href="{{ url('/baby').'/'.$baby->id }}" class="btn-sm btn-primary rounded-circle"><img class="mt-n1" src="img/list.svg"></a>
-                <a href="#" class="btn-sm btn-warning rounded-circle"><img class="mt-n1" src="img/edit.svg"></a>
-                <a href="#" class="btn-sm btn-danger rounded-circle"><img class="mt-n1" src="img/delete.svg"></a>
+                <a href="{{ url('/baby').'/'.$baby->id }}" class="btn-sm btn-info text-decoration-none">Detail</a>
+                {{-- <a href="#" class="btn-sm btn-warning rounded-circle"><img class="mt-n1" src="img/edit.svg"></a>
+                <a href="#" class="btn-sm btn-danger rounded-circle"><img class="mt-n1" src="img/delete.svg"></a> --}}
               </td>
             </tr>
             @endforeach
