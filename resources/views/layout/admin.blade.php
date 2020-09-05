@@ -47,11 +47,11 @@
           <span>Data Bayi</span></a>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-user-friends"></i>
           <span>Data Ibu Hamil</span></a>
-      </li>
+      </li> --}}
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
