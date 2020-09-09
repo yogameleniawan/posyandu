@@ -17,8 +17,8 @@ class CreateProgressBabiesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('id_bayi');
             $table->integer('bulan_ke');
-            $table->integer('panjang_bayi');
-            $table->integer('berat_bayi');
+            $table->decimal('panjang_bayi', 11, 2);
+            $table->decimal('berat_bayi', 11, 2);
             $table->timestamps();
             $table->softDeletes();
         });

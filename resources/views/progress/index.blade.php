@@ -14,16 +14,16 @@
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
          <h6 class="m-0 font-weight-bold text-primary">Berat Badan menurut usia ({{$jk}})</h6>
          <div class="dropdown no-arrow">
-         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-         </a>
-         <div class="dropdown-menu dropdown-menu-right shadow-sm animated--fade-in" aria-labelledby="dropdownMenuLink">
-            <div class="dropdown-header">Dropdown Header:</div>
-            <a class="dropdown-item active" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-         </div>
+            {{-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a> --}}
+            <div class="dropdown-menu dropdown-menu-right shadow-sm animated--fade-in" aria-labelledby="dropdownMenuLink">
+               <div class="dropdown-header">Dropdown Header:</div>
+               <a class="dropdown-item active" href="#">Action</a>
+               <a class="dropdown-item" href="#">Another action</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
          </div>
       </div>
       <!-- Card Body -->
@@ -87,7 +87,7 @@
    <!-- DataTables Example -->
    <div class="card shadow-sm mb-4">
       <div class="card-header py-3">
-         <h6 class="m-0 font-weight-bold text-primary">Data Bayi</h6>
+         <h6 class="m-0 font-weight-bold text-primary">Data Pertumbuhan Bayi</h6>
       </div>
       <div class="card-body container-fluid">
          <form method="post" action="/baby/progress">
@@ -96,12 +96,12 @@
             <input type="hidden" name="id_bayi" value="{{ $baris->id }}">
             <div class="form-group">
                <label for="panjang_bayi">Panjang Bayi (cm)</label>
-               <input type="number" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Panjang Bayi Sekarang" placeholder="Panjang sekarang" min="1">
+               <input type="number" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Panjang Bayi Sekarang" placeholder="Panjang sekarang" min="1" step="any">
                @error('panjang_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
             </div>
             <div class="form-group">
                <label for="berat_bayi">Berat Bayi (kg)</label>
-               <input type="number" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Bayi Sekarang" placeholder="Berat sekarang" min="1">
+               <input type="number" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Bayi Sekarang" placeholder="Berat sekarang" min="1" step="any">
                @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
             </div>
             <button type="submit" class="btn btn-block btn-primary">Simpan</button>

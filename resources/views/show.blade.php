@@ -68,26 +68,39 @@
       </div>
       <div class="card-body">
         <div class="row container-fluid">
-          <div class="col-lg-6">
-            <h5><strong>Golongan Darah </strong></h5>
+          <div class="col-lg-4">
+            <h5><strong>Golongan Darah</strong></h5>
             <p>{{ $baby->golongan_darah }}</p>
           </div>
-          <div class="col-lg-3">
-            <h5><strong>Panjang Lahir </strong></h5>
+          <div class="col-lg-4">
+            <h5><strong>Panjang Lahir</strong></h5>
             <p>{{ $baby->panjang_bayi }} cm</p>
           </div>
-          <div class="col-lg-3">
-            <h5><strong>Berat Lahir </strong></h5>
+          <div class="col-lg-4">
+            <h5><strong>Berat Lahir</strong></h5>
             <p>{{ $baby->berat_bayi }} kg</p>
           </div>
-          <div class="col-lg-6">
-              <h5><strong>Panjang Sekarang </strong></h5>
-              <p>XXXX cm</p>
+          <div class="col-lg-4">
+            <h5><strong>Panjang Sekarang</strong></h5>
+            <p>{{ $panjang_sekarang }} cm</p>
           </div>
-          <div class="col-lg-6">
-              <h5><strong>Berat Sekarang </strong></h5>
-              <p>XXXX kg</p>
+          <div class="col-lg-4">
+            <h5><strong>Berat Sekarang</strong></h5>
+            <div class="row">
+              <div class="col-4">
+
+                <p>{{ $berat_sekarang }} kg</p>
+              </div>
+              <div class="col">
+
+                <span class="badge badge-danger">Terlalu Gemuk</span>
+              </div>
+            </div>
           </div>
+          {{-- <div class="col-lg-4">
+              <h5><strong>Status Berat</strong></h5>
+              <p class="alert alert-danger">Terlalu Kurus</p>
+          </div> --}}
         </div>
       </div>
     </div>

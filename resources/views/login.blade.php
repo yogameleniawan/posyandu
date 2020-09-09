@@ -18,20 +18,39 @@
                         <div class="row">
                            <div class="col-md-9 col-lg-8 mx-auto">
                               <h3 class="login-heading mb-4">Login</h3>
-                              <form>
+                              <form method="POST" action="{{ route('login') }}">
+                                 @csrf
                                  <div class="form-label-group">
-                                       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                                       <label for="inputEmail">Username</label>
+                                       <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" name="email" value="{{ old('email') }}" autofocus>
+                                       @error('email')
+                                          <span class="invalid-feedback" role="alert">
+                                             <strong>{{ $message }}</strong>
+                                          </span>
+                                       @enderror
+                                       <label for="email">{{ __('E-Mail Address') }}</label>
                                  </div>                                
                                  <div class="form-label-group">
-                                       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                                       <label for="inputPassword">Password</label>
+                                       <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" name="password" required>
+                                       @error('password')
+                                          <span class="invalid-feedback" role="alert">
+                                             <strong>{{ $message }}</strong>
+                                          </span>
+                                       @enderror
+                                       <label for="password">Password</label>
                                  </div>                                    
-                                 {{-- <div class="custom-control custom-checkbox mb-3">
-                                       <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                       <label class="custom-control-label" for="customCheck1">Remember password</label>
-                                 </div> --}}
-                                 <a class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" href="{{ url('/baby') }}" type="submit">Sign in</a>
+                                 <div class="custom-control custom-checkbox mb-3">
+                                       <input type="checkbox" class="custom-control-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                       <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
+                                 </div>
+                                 <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+                                 @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                       {{ __('Forgot Your Password?') }}
+                                    </a>
+                                 @endif
+                                 {{-- <a class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" href="{{ url('/baby') }}" type="submit">Sign in</a> --}}
                                  {{-- <div class="text-center">
                                        <a class="small" href="#">Forgot password?</a>
                                  </div> --}}

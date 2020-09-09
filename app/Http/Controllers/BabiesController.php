@@ -19,11 +19,20 @@ class BabiesController extends Controller
         ->where('id_bayi', $baby->id)
         ->get();
         $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
-        // dd($progress);
+        $i = 0;
+        foreach($progress as $d):
+            $bulan[$i] = $d->bulan_ke;
+            $i++;
+        endforeach;
         if(count($progress) == 0){
             $progress = null;
+            $panjang_bayi = $baby->panjang_bayi;
+            $berat_bayi = $baby->berat_bayi;
         }else{
             $progress = $progress;
+            $detail = DB::table('progress_babies')->select('panjang_bayi', 'berat_bayi')->where('id_bayi', $baby->id)->where('bulan_ke', max($bulan))->get();
+            $panjang_bayi = $detail[0]->panjang_bayi;
+            $berat_bayi = $detail[0]->berat_bayi;
         }
         $dataProgress = $this->dataProgress($progress, $baby);
         $data = [
@@ -67,6 +76,8 @@ class BabiesController extends Controller
             return $data;
         }
     }
+
+
 
 
     /**
@@ -160,14 +171,48 @@ class BabiesController extends Controller
      */
     public function show(Baby $baby)
     {
+        $progress = DB::table('babies AS b')
+        ->join('progress_babies AS p', 'b.id', '=', 'p.id_bayi')
+        ->select('b.nama', 'b.nama_ibu', 'b.nama_ayah', 'b.tempat_lahir', 'b.tanggal_lahir', 'b.anak_ke', 'b.alamat', 'b.jenis_kelamin', 'b.golongan_darah', 'p.id_bayi', 'p.bulan_ke', 'p.panjang_bayi', 'p.berat_bayi')
+        ->where('id_bayi', $baby->id)
+        ->get();
+        $i = 0;
+        foreach($progress as $d):
+            $bulan[$i] = $d->bulan_ke;
+            $i++;
+        endforeach;
+        if(count($progress) == 0){
+            $panjang_bayi = $baby->panjang_bayi;
+            $berat_bayi = $baby->berat_bayi;
+        }else{
+            $detail = DB::table('progress_babies')->select('panjang_bayi', 'berat_bayi')->where('id_bayi', $baby->id)->where('bulan_ke', max($bulan))->get();
+            $panjang_bayi = $detail[0]->panjang_bayi;
+            $berat_bayi = $detail[0]->berat_bayi;
+        }
+        $this->status($baby->jenis_kelamin, $baby->tanggal_lahir);
         $umur = $this->hitung_umur(date('Y-m-d', $baby->tanggal_lahir));
         $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
         $data = [
             'baby' => $baby,
             'jenis_kelamin' => $jk,
-            'umur' => $umur
+            'umur' => $umur,
+            'panjang_sekarang' => $panjang_bayi,
+            'berat_sekarang' => $berat_bayi
         ];
         return view('show', $data);
+    }
+
+    function status($jk, $tanggal_lahir){
+        $bulan = (date('Y')-date('Y', $tanggal_lahir))*12;
+        $bulan += date('m')-date('m', $tanggal_lahir);
+        switch($jk){
+            case 1:
+                dd($bulan);
+            break;
+            case 2:
+                dd($bulan);
+            break;
+        }
     }
 
     function hitung_umur($tanggal_lahir){

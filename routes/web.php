@@ -12,10 +12,14 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/login', 'PagesController@login');
+// Route::get('/login', 'PagesController@login');
 
 Route::get('baby/{baby}/progress', 'BabiesController@progress');
 Route::post('baby/progress', 'BabiesController@simpanprogress');
 Route::resource('baby', 'BabiesController');
 // Route::get('progress/{baby}', 'ProgressBabiesController@show');
 // Route::resource('progress', 'ProgressBabiesController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

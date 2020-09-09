@@ -24,8 +24,8 @@ class CreateBabiesTable extends Migration
             $table->string('alamat', 256);
             $table->integer('jenis_kelamin');
             $table->string('golongan_darah');
-            $table->integer('panjang_bayi');
-            $table->integer('berat_bayi');
+            $table->decimal('panjang_bayi', 11, 2);
+            $table->decimal('berat_bayi', 11, 2);
             $table->timestamps();
         });
     }
