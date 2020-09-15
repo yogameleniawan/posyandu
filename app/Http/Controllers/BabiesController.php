@@ -76,11 +76,17 @@ class BabiesController extends Controller
                     }
                 }
             }else if(count($progress) > 13 && count($progress) <= 25){
-                dd('masuk');
+                for($i = 1; $i<=25 ; $i++){
+                    if($i<=count($progress)){
+                        $data[$i] = $progress[$i-1]->berat_bayi;
+                    }else if($i > count($progress)){
+                        $data[$i] = null;
+                    }
+                }
                 // for($i = 12; $i<=24 ; $i++){
-                //     if($i<=count($progress)){
-                //         $data[$i] = $progress[$i-1]->berat_bayi;
-                //     }else if($i > count($progress)){
+                //     if($i<count($progress)){
+                //         $data[$i] = $progress[$i]->berat_bayi;
+                //     }else if($i >= count($progress)){
                 //         $data[$i] = null;
                 //     }
                 // }
