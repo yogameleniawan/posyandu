@@ -14,7 +14,7 @@
          <h6 class="m-0 font-weight-bold text-primary">Data Bayi</h6>
       </div>
       <div class="card-body container-fluid">
-         <form method="post" action="/baby">
+         <form method="post" action="{{ url('/baby') }}">
             @csrf
             <div class="row">
                <div class="col-xl-6 mr-auto">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Sep 2020 pada 07.12
+-- Waktu pembuatan: 10 Sep 2020 pada 12.51
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -39,27 +39,12 @@ CREATE TABLE `babies` (
   `alamat` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenis_kelamin` int(11) NOT NULL,
   `golongan_darah` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `panjang_bayi` int(11) NOT NULL,
-  `berat_bayi` int(11) NOT NULL,
+  `panjang_bayi` decimal(11,2) NOT NULL,
+  `berat_bayi` decimal(11,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `babies`
---
-
-INSERT INTO `babies` (`id`, `nama`, `nama_ibu`, `nama_ayah`, `tempat_lahir`, `tanggal_lahir`, `anak_ke`, `alamat`, `jenis_kelamin`, `golongan_darah`, `panjang_bayi`, `berat_bayi`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Bayi', 'Ibu', 'Ayah', 'Pasuruan', 1599023940, 4, 'Malang', 2, 'B', 50, 3, '2020-09-02 05:19:55', '2020-09-02 05:19:55', NULL),
-(2, 'Qwerty', 'Rweq', 'Qwer', 'Pasuruan', 1583385660, 3, 'Malang', 2, 'AB', 50, 3, '2020-09-02 05:22:27', '2020-09-05 05:09:45', '2020-09-05 05:09:45'),
-(3, 'Rasya', 'Ferdiani', 'Hendra', 'Pasuruan', 1595571660, 2, 'Pasuruan', 1, 'BT', 50, 3, '2020-09-02 06:21:53', '2020-09-03 10:25:34', '2020-09-03 10:25:34'),
-(4, 'Clarissa Agiska Davindra', 'Ferdiani Megasari', 'Hendra Ervi Sudarji', 'Pasuruan', 1537233900, 1, 'Pasuruan', 1, 'BT', 50, 3, '2020-09-03 10:27:56', '2020-09-03 10:29:06', '2020-09-03 10:29:06'),
-(5, 'Clarissa Agiska Davindra', 'Ferdiani Megasari', 'Hendra Ervi Sudarji', 'Pasuruan', 1537233900, 1, 'Pasuruan', 2, 'BT', 50, 3, '2020-09-03 10:30:33', '2020-09-04 02:23:09', '2020-09-04 02:23:09'),
-(6, 'Zehan Arrasya Davindra', 'Ferdiani Megasari', 'Hendra Ervi Sudarji', 'Pasuruan', 1595577120, 2, 'Pasuruan', 1, 'BT', 52, 3, '2020-09-03 10:39:23', '2020-09-04 02:23:16', '2020-09-04 02:23:16'),
-(7, 'Clarissa Agiska Davindra', 'Ferdiani Megasari', 'Hendra Erfi Sudarji', 'Pasuruan', 1537233900, 1, 'Pasuruan', 2, 'BT', 50, 3, '2020-09-04 02:25:11', '2020-09-04 02:25:11', NULL),
-(8, 'Zehan Arrasya Davindra', 'Ferdiani Megasari', 'Hendra Erfi Sudarji', 'Pasuruan', 1595577120, 2, 'Pasuruan', 1, 'BT', 52, 3, '2020-09-04 02:26:33', '2020-09-04 02:26:33', NULL),
-(9, 'Asd', 'Qwer', 'Sedfg', 'Sdrf', 1599277620, 2, 'Anvsdg', 1, 'B', 50, 3, '2020-09-05 03:47:51', '2020-09-05 03:47:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -93,12 +78,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(23, '2014_10_12_000000_create_users_table', 1),
-(24, '2014_10_12_100000_create_password_resets_table', 1),
-(25, '2019_08_19_000000_create_failed_jobs_table', 1),
-(26, '2020_09_02_064813_create_babies_table', 1),
-(27, '2020_09_02_072934_add_soft_delete_to_babies', 1),
-(28, '2020_09_02_115439_create_progress_babies_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2020_09_02_064813_create_babies_table', 1),
+(5, '2020_09_02_072934_add_soft_delete_to_babies', 1),
+(6, '2020_09_02_115439_create_progress_babies_table', 1);
 
 -- --------------------------------------------------------
 
@@ -122,25 +107,12 @@ CREATE TABLE `progress_babies` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_bayi` int(11) NOT NULL,
   `bulan_ke` int(11) NOT NULL,
-  `panjang_bayi` int(11) NOT NULL,
-  `berat_bayi` int(11) NOT NULL,
+  `panjang_bayi` decimal(11,2) NOT NULL,
+  `berat_bayi` decimal(11,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `progress_babies`
---
-
-INSERT INTO `progress_babies` (`id`, `id_bayi`, `bulan_ke`, `panjang_bayi`, `berat_bayi`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 9, 60, 4, NULL, NULL, NULL),
-(2, 1, 10, 65, 5, NULL, NULL, NULL),
-(3, 2, 1, 4, 30, '2020-09-03 10:07:44', '2020-09-03 10:07:44', NULL),
-(4, 2, 2, 4, 30, '2020-09-03 10:09:55', '2020-09-03 10:09:55', NULL),
-(5, 2, 3, 30, 5, '2020-09-03 10:10:09', '2020-09-03 10:10:09', NULL),
-(6, 8, 1, 32, 5, '2020-09-05 03:30:38', '2020-09-05 03:30:38', NULL),
-(7, 2, 4, 3, 60, '2020-09-05 05:07:23', '2020-09-05 05:07:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -158,6 +130,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@posyandu.com', NULL, '$2y$10$w9d.jPquia5sGzViNAo.4eWK2uEeE2FNhtnTS4F0.Suc8CcVAXPYC', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -208,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `babies`
 --
 ALTER TABLE `babies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -220,19 +199,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `progress_babies`
 --
 ALTER TABLE `progress_babies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

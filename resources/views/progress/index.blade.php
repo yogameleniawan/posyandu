@@ -12,7 +12,7 @@
    <div class="card shadow-sm mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-         <h6 class="m-0 font-weight-bold text-primary">Berat Badan menurut usia ({{$jk}})</h6>
+         <h6 class="m-0 font-weight-bold text-primary">Berat Badan menut usia ({{$jk}})</h6>
          <div class="dropdown no-arrow">
             {{-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -90,7 +90,7 @@
          <h6 class="m-0 font-weight-bold text-primary">Data Pertumbuhan Bayi</h6>
       </div>
       <div class="card-body container-fluid">
-         <form method="post" action="/baby/progress">
+         <form method="post" action="{{ url('/baby/progress') }}">
             @csrf
             <input type="hidden" name="bulan_ke" value="{{ $bulan_ke }}">
             <input type="hidden" name="id_bayi" value="{{ $baris->id }}">
@@ -109,6 +109,6 @@
       </div>
    </div>
 </div>
-<script src="/vendor/chart.js/Chart.min.js"></script>
+<script src="{{ asset('/vendor/chart.js/Chart.min.js') }}"></script>
 <!-- /.container-fluid -->
 @endsection

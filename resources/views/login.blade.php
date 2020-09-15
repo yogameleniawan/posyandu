@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Bayu Fajariyanto" />
+
+   <!-- CSRF Token -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
+
+   <title>{{ config('app.name', 'Posyandu') }}</title>
+
+   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
-<body>
-    
+<body>    
    <div class="container-fluid">
       <div class="row no-gutter">
          <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -27,7 +32,7 @@
                                              <strong>{{ $message }}</strong>
                                           </span>
                                        @enderror
-                                       <label for="email">{{ __('E-Mail Address') }}</label>
+                                       <label for="email">email: admin@posyandu.com</label>
                                  </div>                                
                                  <div class="form-label-group">
                                        <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" name="password" required>
@@ -36,7 +41,7 @@
                                              <strong>{{ $message }}</strong>
                                           </span>
                                        @enderror
-                                       <label for="password">Password</label>
+                                       <label for="password">password: admin</label>
                                  </div>                                    
                                  <div class="custom-control custom-checkbox mb-3">
                                        <input type="checkbox" class="custom-control-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -64,7 +69,7 @@
          </div>
       </div>
    </div>
-   <script src="js/bootstrap.bundle.min.js"></script>
-   <script src="js/jquery.slim.js"></script>
+   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+   <script src="{{ asset('js/jquery.slim.js') }}"></script>
 </body>
 </html>

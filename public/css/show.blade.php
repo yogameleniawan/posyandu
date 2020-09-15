@@ -22,10 +22,10 @@
     </div>
     <div class="card-body">
       <div class="row container-fluid">
-        {{-- <div class="col-lg-6">
+        <div class="col-lg-6">
           <h5><strong>ID Bayi</strong></h5>
           <p>XXXX</p>
-        </div> --}}
+        </div>
         <div class="col-lg-6">
           <h5><strong>Nama Bayi</strong></h5>
           <p>{{ $baby->nama }}</p>
@@ -88,13 +88,11 @@
             <h5><strong>Berat Sekarang</strong></h5>
             <div class="row">
               <div class="col-4">
-
                 <p>{{ $berat_sekarang }} kg</p>
               </div>
-              <div class="col">
-
-                {{-- <span class="badge badge-danger">Terlalu Gemuk</span> --}}
-              </div>
+              {{-- <div class="col">
+                <span class="badge badge-danger">Terlalu Gemuk</span>
+              </div> --}}
             </div>
           </div>
           {{-- <div class="col-lg-4">

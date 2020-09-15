@@ -207,10 +207,10 @@ class BabiesController extends Controller
         $bulan += date('m')-date('m', $tanggal_lahir);
         switch($jk){
             case 1:
-                dd($bulan);
+                // dd($bulan);
             break;
             case 2:
-                dd($bulan);
+                // dd($bulan);
             break;
         }
     }
