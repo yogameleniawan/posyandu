@@ -21,6 +21,11 @@
       {{session('status')}}
     </div>
   @endif
+  @if(session('danger'))
+  <div class="alert alert-danger">
+    {{session('danger')}}
+  </div>
+  @endif
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">

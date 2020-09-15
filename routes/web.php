@@ -23,3 +23,5 @@ Route::resource('baby', 'BabiesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/create', 'HomeController@create');
+Route::post('/home/store', 'HomeController@store');

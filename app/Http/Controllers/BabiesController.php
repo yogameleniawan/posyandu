@@ -7,11 +7,10 @@ use App\Baby;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use DateTime;
-use Illuminate\Foundation\Console\Presets\React;
+// use Illuminate\Foundation\Console\Presets\React;
 
 class BabiesController extends Controller
 {
-    
     public function progress(Baby $baby){
         $progress = DB::table('babies AS b')
         ->join('progress_babies AS p', 'b.id', '=', 'p.id_bayi')
@@ -42,11 +41,13 @@ class BabiesController extends Controller
             'dtProgress' => $dataProgress
         ];
         echo view('progress.index', $data);
-        if($baby->jenis_kelamin == 1)
-            echo view('progress.kms-laki', $data);
-        else if($baby->jenis_kelamin == 2)
+        if($baby->jenis_kelamin == 1){
+            if(count($progress) == null || count($progress) <= 13)
+                echo view('progress.kms-laki', $data);
+            else if(count($progress) > 13 && count($progress) <= 25)
+                echo view('progress.kms-laki2', $data);
+        }else if($baby->jenis_kelamin == 2)
             echo view('progress.kms-perempuan', $data);
-
     }
 
     public function simpanprogress(Request $request){
@@ -66,29 +67,42 @@ class BabiesController extends Controller
             }
             return $data;
         }else{
-            for($i = 1; $i<=12 ; $i++){
-                if($i<=count($progress)){
-                    $data[$i] = $progress[$i-1]->berat_bayi;
-                }else if($i > count($progress)){
-                    $data[$i] = null;
+            if(count($progress) <= 13){
+                for($i = 1; $i<=12 ; $i++){
+                    if($i<=count($progress)){
+                        $data[$i] = $progress[$i-1]->berat_bayi;
+                    }else if($i > count($progress)){
+                        $data[$i] = null;
+                    }
                 }
+            }else if(count($progress) > 13 && count($progress) <= 25){
+                dd('masuk');
+                // for($i = 12; $i<=24 ; $i++){
+                //     if($i<=count($progress)){
+                //         $data[$i] = $progress[$i-1]->berat_bayi;
+                //     }else if($i > count($progress)){
+                //         $data[$i] = null;
+                //     }
+                // }
             }
             return $data;
         }
     }
-
-
-
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $role = $request->session()->get('role');
         $babies = Baby::all();
-        return view('baby', compact('babies'));
+        if($role === 'Admin' && $role !== 'Staff'){
+            return redirect('/home');
+        }else{
+            return view('baby', compact('babies'));
+        }
     }
 
     /**

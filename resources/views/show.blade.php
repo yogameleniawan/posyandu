@@ -26,37 +26,40 @@
           <h5><strong>ID Bayi</strong></h5>
           <p>XXXX</p>
         </div> --}}
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <h5><strong>Nama Bayi</strong></h5>
           <p>{{ $baby->nama }}</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <h5><strong>Nama Ibu</strong></h5>
             <p>{{ $baby->nama_ibu }}</p>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <h5><strong>Nama Ayah</strong></h5>
             <p>{{ $baby->nama_ayah }}</p>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <h5><strong>Tempat Lahir</strong></h5>
             <p>{{ $baby->tempat_lahir }}</p>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <h5><strong>Tanggal Lahir</strong></h5>
             <p>{{ date('d/m/Y | H:i', $baby->tanggal_lahir) }}</p>
-            <p>Usia ({{ $umur }})</p>
           </div>
-          <div class="col-lg-3">
-            <h5><strong>Jenis Kelamin </strong></h5>
+          <div class="col-lg-4">
+            <h5><strong>Usia</strong></h5>
+            <p>{{ $umur }}</p>
+          </div>
+          <div class="col-lg-4">
+            <h5><strong>Jenis Kelamin</strong></h5>
             <p>{{ $jenis_kelamin }}</p>
           </div>
-          <div class="col-lg-3">
-            <h5><strong>Anak Ke </strong></h5>
+          <div class="col-lg-4">
+            <h5><strong>Anak Ke</strong></h5>
             <p>{{ $baby->anak_ke }}</p>
           </div>
-          <div class="col-lg-12">
-            <h5><strong>Alamat Lengkap  </strong></h5>
+          <div class="col-lg-4">
+            <h5><strong>Alamat Lengkap</strong></h5>
             <p>{{ $baby->alamat }}</p>
           </div>
         </div>

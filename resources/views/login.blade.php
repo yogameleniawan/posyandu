@@ -35,7 +35,7 @@
                                        <label for="email">email: admin@posyandu.com</label>
                                  </div>                                
                                  <div class="form-label-group">
-                                       <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" name="password" required>
+                                       <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" name="password">
                                        @error('password')
                                           <span class="invalid-feedback" role="alert">
                                              <strong>{{ $message }}</strong>

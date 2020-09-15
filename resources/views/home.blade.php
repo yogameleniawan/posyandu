@@ -2,22 +2,72 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+   <div class="row justify-content-center">
+      <div class="col-md-10">
+         <div class="row">
+            <div class="col">
+               <h1 class="h3 mb-2 text-gray-800">Data Akun</h1>
+               <p class="mb-4">Halaman ini untuk mengelola akun staff dan admin</p>
             </div>
-        </div>
-    </div>
+            <div class="col text-right">
+               <a href="{{ url('/home/create') }}" class="btn btn-primary mt-3 shadow-sm">Tambah Data</a>
+            </div>
+         </div>
+         @if(session('status'))
+         <div class="alert alert-success">
+            {{session('status')}}
+         </div>
+         @endif
+         @if(session('danger'))
+         <div class="alert alert-danger">
+            {{session('danger')}}
+         </div>
+         @endif
+      </div>
+   </div>
+  
+    
+   <div class="row justify-content-center">
+      <div class="col-md-10">
+            <!-- DataTales Example -->
+            <div class="card shadow-sm mb-4">
+               <div class="card-header py-3">
+               <h6 class="m-0 font-weight-bold text-primary">Tabel Data Akun</h6>
+               </div>
+               <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                     <thead>
+                        <tr>
+                        <th>NO</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                        <th>NO</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        @foreach($users as $user)
+                        <tr>
+                           <td class="text-center">{{ $loop->iteration }}</td>
+                           <td>{{ ucwords($user->name) }}</td>
+                           <td>{{ strtolower($user->email) }}</td>
+                           <td>{{ $user->role }}</td>
+                        </tr>
+                        @endforeach
+                     </tbody>
+                  </table>
+               </div>
+               </div>
+            </div>
+      </div>
+   </div>
 </div>
 @endsection

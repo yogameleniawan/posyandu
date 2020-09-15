@@ -46,7 +46,7 @@
                      <div class="col-sm-6">                        
                         <div class="form-group">
                            <label for="tanggal_lahir">Tanggal Lahir</label>
-                           <input type="datetime-local" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" data-toggle="tooltip" data-placement="right" title="Tanggal Lahir Bayi" value="<?= date('Y-m-d')."T".date('H:i') ?>">
+                           <input type="datetime-local" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" data-toggle="tooltip" data-placement="right" title="Tanggal Lahir Bayi" value="<?= date('Y-m-d')."T".date('H:i') ?>" max="<?= date('Y-m-d'); ?>T23:59">
                            @error('tanggal_lahir')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                         </div>
                      </div>
