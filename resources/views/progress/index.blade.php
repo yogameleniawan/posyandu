@@ -58,7 +58,7 @@
             </tfoot>
             <tbody>
                <tr>
-                  <td class="text-center">0</td>
+                  <td class="text-center">0 (Saat Lahir)</td>
                   <td>{{ $baris->panjang_bayi}} cm</td>
                   <td>{{ $baris->berat_bayi }} kg</td>
                </tr>

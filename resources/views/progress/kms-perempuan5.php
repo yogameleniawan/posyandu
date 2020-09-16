@@ -33,7 +33,7 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["36 Bulan", "37 Bulan", "38 Bulan", "39 Bulan", "40 Bulan", "41 Bulan", "42 Bulan", "43 Bulan", "44 Bulan", "45 Bulan", "46 Bulan", "47 Bulan", "48 Bulan"],
+    labels: ["48 Bulan", "49 Bulan", "50 Bulan", "51 Bulan", "52 Bulan", "53 Bulan", "54 Bulan", "55 Bulan", "56 Bulan", "57 Bulan", "58 Bulan", "59 Bulan", "60 Bulan"],
     datasets: [
       {
       label: "Berat bayi",
@@ -48,7 +48,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [<?= $dtProgress[36]; ?>,<?= $dtProgress[37]; ?>,<?= $dtProgress[38]; ?>,<?= $dtProgress[39]; ?>,<?= $dtProgress[40]; ?>,<?= $dtProgress[41]; ?>,<?= $dtProgress[42]; ?>,<?= $dtProgress[43]; ?>,<?= $dtProgress[44]; ?>,<?= $dtProgress[45]; ?>,<?= $dtProgress[46]; ?>,<?= $dtProgress[47]; ?>,<?= $dtProgress[48]; ?>],
+      data: [<?= $dtProgress[48]; ?>, <?= $dtProgress[49]; ?>, <?= $dtProgress[50]; ?>, <?= $dtProgress[51]; ?>, <?= $dtProgress[52]; ?>, <?= $dtProgress[53]; ?>, <?= $dtProgress[54]; ?>, <?= $dtProgress[55]; ?>, <?= $dtProgress[56]; ?>, <?= $dtProgress[57]; ?>, <?= $dtProgress[58]; ?>, <?= $dtProgress[59]; ?>, <?= $dtProgress[60]; ?>],
       },
       {
       label: "Terlalu Gemuk",
@@ -63,7 +63,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(231,74,59,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [18.1, 18.4, 18.7, 19, 19.3, 19.5, 19.8, 20.1, 20.4, 20.7, 21, 21.2, 21.5],
+      data: [21.5, 21.8, 22.1, 22.4, 22.65, 22.95, 23.2, 23.5, 23.8, 24.1, 24.35, 24.65, 24.9],
       },
       {
       label: "Batas Ideal Atas",
@@ -78,7 +78,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(246,194,62,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [15.8, 16, 16.25, 16.5, 16.7, 16.9, 17.2, 17.4, 17.6, 17.8, 18.1, 18.3, 18.5],
+      data: [18.5, 18.7, 19, 19.2, 19.4, 19.65, 19.85, 20.1, 20.3, 20.5, 20.75, 21, 21.2],
       },
       {
       label: "Ideal",
@@ -93,7 +93,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(54,185,204,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [13.85, 14, 14.2, 14.4, 14.6, 14.8, 15, 15.15, 15.3, 15.5, 15.7, 15.9, 16.1],
+      data: [16.1, 16.25, 16.4, 16.65, 16.8, 17, 17.15, 17.3, 17.5, 17.7, 17.9, 18.05, 18.2],
       },
       {
       label: "Batas Ideal Bawah",
@@ -108,7 +108,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(246,194,62,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [12.2, 12.3, 12.5, 12.65, 12.8, 13, 13.15, 13.3, 13.45, 13.55, 13.7, 13.9, 14],
+      data: [14, 14.2, 14.4, 14.6, 14.7, 14.8, 14.9, 15.05, 15.2, 15.35, 15.5, 15.6, 15.7],
       },
       {
       label: "Terlalu Kurus",
@@ -123,7 +123,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(231,74,59,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [10.8, 10.9, 11.1, 11.2, 11.3, 11.4, 11.55, 11.6, 11.7, 11.8, 11.95, 12.1, 12.3],
+      data: [12.3, 12.4, 12.55, 12.65, 12.8, 12.9, 13, 13.15, 13.25, 13.4, 13.5, 13.6, 13.7],
       },
     ],
   },

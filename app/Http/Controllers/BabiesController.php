@@ -65,6 +65,8 @@ class BabiesController extends Controller
                 echo view('progress.kms-laki3', $data);
             }else if(count($progress) > 36 && count($progress) <= 48){
                 echo view('progress.kms-laki4', $data);
+            }else if(count($progress) > 48 && count($progress) <= 60){
+                echo view('progress.kms-laki5', $data);
             }
         }else if($baby->jenis_kelamin == 2){
             if(count($progress) == null || count($progress) < 13){
@@ -75,6 +77,8 @@ class BabiesController extends Controller
                 echo view('progress.kms-perempuan3', $data);
             }else if(count($progress) > 36 && count($progress) <= 48){
                 echo view('progress.kms-perempuan4', $data);
+            }else if(count($progress) > 48 && count($progress) <= 60){
+                echo view('progress.kms-perempuan5', $data);
             }
         }
     }
@@ -122,6 +126,14 @@ class BabiesController extends Controller
                 }
             }else if(count($progress) >= 37 && count($progress) <= 48){
                 for($i = 1; $i<=48 ; $i++){
+                    if($i<=count($progress)){
+                        $data[$i] = $progress[$i-1]->berat_bayi;
+                    }else if($i > count($progress)){
+                        $data[$i] = null;
+                    }
+                }
+            }else if(count($progress) >= 49 && count($progress) <= 60){
+                for($i = 1; $i<=60 ; $i++){
                     if($i<=count($progress)){
                         $data[$i] = $progress[$i-1]->berat_bayi;
                     }else if($i > count($progress)){
