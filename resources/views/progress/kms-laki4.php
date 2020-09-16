@@ -63,7 +63,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(231,74,59,0.2)",
       pointHitRadius: 10,
       pointBorderWidth: 1,
-      data: [18.3, 18.6, 18.8, 19, 19.3, 19.5, 19.7, 20, 20.2, 20.45, 20.7, 20.9, 21.2],
+      data: [18.3, 18.6, 18.8, 19, 19.3, 19.5, 19.7, 20, 20.2, 20.45, 20.7, 20.9, 21.15],
       },
       {
       label: "Batas Ideal Atas",
