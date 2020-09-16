@@ -73,6 +73,8 @@ class BabiesController extends Controller
                 echo view('progress.kms-perempuan2', $data);
             }else if(count($progress) > 24 && count($progress) <= 36){
                 echo view('progress.kms-perempuan3', $data);
+            }else if(count($progress) > 36 && count($progress) <= 48){
+                echo view('progress.kms-perempuan4', $data);
             }
         }
     }
