@@ -76,7 +76,7 @@
             <p>{{ $baby->golongan_darah }}</p>
           </div>
           <div class="col-lg-4">
-            <h5><strong>Panjang Lahir</strong></h5>
+            <h5><strong>Tinggi Lahir</strong></h5>
             <p>{{ $baby->panjang_bayi }} cm</p>
           </div>
           <div class="col-lg-4">
@@ -84,7 +84,7 @@
             <p>{{ $baby->berat_bayi }} kg</p>
           </div>
           <div class="col-lg-4">
-            <h5><strong>Panjang Sekarang</strong></h5>
+            <h5><strong>Tinggi Sekarang</strong></h5>
             <p>{{ $panjang_sekarang }} cm</p>
           </div>
           <div class="col-lg-4">

@@ -12,7 +12,7 @@
    <div class="card shadow-sm mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-         <h6 class="m-0 font-weight-bold text-primary">Berat Badan menurut usia ({{$jk}})</h6>
+         <h6 class="m-0 font-weight-bold text-primary">Berat Badan menurut usia {{ $umur }} ({{ $kelamin }} <i class="{{ $jk }}"></i>)</h6>
          <div class="dropdown no-arrow">
             {{-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -45,14 +45,14 @@
             <thead>
               <tr>
                 <th>Bulan Ke-</th>
-                <th>Panjang Bayi</th>
+                <th>Tinggi Bayi</th>
                 <th>Berat Bayi</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <th>Bulan Ke-</th>
-                <th>Panjang Bayi</th>
+                <th>Tinggi Bayi</th>
                 <th>Berat Bayi</th>
               </tr>
             </tfoot>
@@ -95,8 +95,8 @@
             <input type="hidden" name="bulan_ke" value="{{ $bulan_ke }}">
             <input type="hidden" name="id_bayi" value="{{ $baris->id }}">
             <div class="form-group">
-               <label for="panjang_bayi">Panjang Bayi (cm)</label>
-               <input type="number" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Panjang Bayi Sekarang" placeholder="Panjang sekarang" min="1" step="any">
+               <label for="panjang_bayi">Tinggi Bayi (cm)</label>
+               <input type="number" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Panjang Bayi Sekarang" placeholder="Tinggi sekarang" min="1" step="any">
                @error('panjang_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
             </div>
             <div class="form-group">

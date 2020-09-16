@@ -17,7 +17,8 @@ class BabiesController extends Controller
         ->select('b.nama', 'b.nama_ibu', 'b.nama_ayah', 'b.tempat_lahir', 'b.tanggal_lahir', 'b.anak_ke', 'b.alamat', 'b.jenis_kelamin', 'b.golongan_darah', 'p.id_bayi', 'p.bulan_ke', 'p.panjang_bayi', 'p.berat_bayi')
         ->where('id_bayi', $baby->id)
         ->get();
-        $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
+        $jk = $baby->jenis_kelamin == 1 ? 'fas fa-mars' : 'fas fa-venus';
+        $kelamin = $baby->jenis_kelamin == 1 ? 'Laki-Laki' : 'Perempuan';
         $i = 0;
         foreach($progress as $d):
             $bulan[$i] = $d->bulan_ke;
@@ -34,20 +35,46 @@ class BabiesController extends Controller
             $berat_bayi = $detail[0]->berat_bayi;
         }
         $dataProgress = $this->dataProgress($progress, $baby);
+        if(count($progress) == null || count($progress) < 13){
+            $umur = "0 - 12 Bulan";
+        }else if(count($progress) > 12 && count($progress) <= 24){
+            $umur = "1 - 2 Tahun";
+        }else if(count($progress) > 24 && count($progress) <= 36){
+            $umur = "2 - 3 Tahun";
+        }else if(count($progress) > 36 && count($progress) <= 48){
+            $umur = "3 - 4 Tahun";
+        }else if(count($progress) > 48 && count($progress) <= 60){
+            $umur = "4 - 5 Tahun";
+        }
         $data = [
             'baris' => $baby,
             'progress' => $progress,
             'jk' => $jk,
-            'dtProgress' => $dataProgress
+            'dtProgress' => $dataProgress,
+            'umur' => $umur,
+            'kelamin' => $kelamin
         ];
         echo view('progress.index', $data);
+        $data['umur'] = 'asdasd';
         if($baby->jenis_kelamin == 1){
-            if(count($progress) == null || count($progress) <= 13)
+            if(count($progress) == null || count($progress) < 13){
                 echo view('progress.kms-laki', $data);
-            else if(count($progress) > 13 && count($progress) <= 25)
+            }else if(count($progress) > 12 && count($progress) <= 24){
                 echo view('progress.kms-laki2', $data);
-        }else if($baby->jenis_kelamin == 2)
-            echo view('progress.kms-perempuan', $data);
+            }else if(count($progress) > 24 && count($progress) <= 36){
+                echo view('progress.kms-laki3', $data);
+            }else if(count($progress) > 36 && count($progress) <= 48){
+                echo view('progress.kms-laki4', $data);
+            }
+        }else if($baby->jenis_kelamin == 2){
+            if(count($progress) == null || count($progress) < 13){
+                echo view('progress.kms-perempuan', $data);
+            }else if(count($progress) > 12 && count($progress) <= 24){
+                echo view('progress.kms-perempuan2', $data);
+            }else if(count($progress) > 24 && count($progress) <= 36){
+                echo view('progress.kms-perempuan3', $data);
+            }
+        }
     }
 
     public function simpanprogress(Request $request){
@@ -67,7 +94,7 @@ class BabiesController extends Controller
             }
             return $data;
         }else{
-            if(count($progress) <= 13){
+            if(count($progress) <= 12){
                 for($i = 1; $i<=12 ; $i++){
                     if($i<=count($progress)){
                         $data[$i] = $progress[$i-1]->berat_bayi;
@@ -75,7 +102,7 @@ class BabiesController extends Controller
                         $data[$i] = null;
                     }
                 }
-            }else if(count($progress) > 13 && count($progress) <= 25){
+            }else if(count($progress) >= 13 && count($progress) <= 24){
                 for($i = 1; $i<=25 ; $i++){
                     if($i<=count($progress)){
                         $data[$i] = $progress[$i-1]->berat_bayi;
@@ -83,13 +110,22 @@ class BabiesController extends Controller
                         $data[$i] = null;
                     }
                 }
-                // for($i = 12; $i<=24 ; $i++){
-                //     if($i<count($progress)){
-                //         $data[$i] = $progress[$i]->berat_bayi;
-                //     }else if($i >= count($progress)){
-                //         $data[$i] = null;
-                //     }
-                // }
+            }else if(count($progress) >= 25 && count($progress) <= 36){
+                for($i = 1; $i<=36 ; $i++){
+                    if($i<=count($progress)){
+                        $data[$i] = $progress[$i-1]->berat_bayi;
+                    }else if($i > count($progress)){
+                        $data[$i] = null;
+                    }
+                }
+            }else if(count($progress) >= 37 && count($progress) <= 48){
+                for($i = 1; $i<=48 ; $i++){
+                    if($i<=count($progress)){
+                        $data[$i] = $progress[$i-1]->berat_bayi;
+                    }else if($i > count($progress)){
+                        $data[$i] = null;
+                    }
+                }
             }
             return $data;
         }
