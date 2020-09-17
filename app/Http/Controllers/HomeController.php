@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $users = DB::table('users')->orderBy('role', 'desc')->get();
+        $users = DB::table('users')->orderBy('role', 'desc')->where('email', '!=', $request->session()->get('email'))->get();
         $role = $request->session()->get('role');
 
         if($role === 'Staff' && $role !== 'Admin'){

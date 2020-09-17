@@ -35,7 +35,8 @@ class BabiesController extends Controller
             $berat_bayi = $detail[0]->berat_bayi;
         }
         $dataProgress = $this->dataProgress($progress, $baby);
-        if(count($progress) == null || count($progress) < 13){
+        // dd($progress);
+        if($progress == null || count($progress) < 13){
             $umur = "0 - 12 Bulan";
         }else if(count($progress) > 12 && count($progress) <= 24){
             $umur = "1 - 2 Tahun";
@@ -55,9 +56,8 @@ class BabiesController extends Controller
             'kelamin' => $kelamin
         ];
         echo view('progress.index', $data);
-        $data['umur'] = 'asdasd';
         if($baby->jenis_kelamin == 1){
-            if(count($progress) == null || count($progress) < 13){
+            if($progress == null || count($progress) < 13){
                 echo view('progress.kms-laki', $data);
             }else if(count($progress) > 12 && count($progress) <= 24){
                 echo view('progress.kms-laki2', $data);
@@ -69,7 +69,7 @@ class BabiesController extends Controller
                 echo view('progress.kms-laki5', $data);
             }
         }else if($baby->jenis_kelamin == 2){
-            if(count($progress) == null || count($progress) < 13){
+            if($progress == null || count($progress) < 13){
                 echo view('progress.kms-perempuan', $data);
             }else if(count($progress) > 12 && count($progress) <= 24){
                 echo view('progress.kms-perempuan2', $data);
@@ -259,7 +259,8 @@ class BabiesController extends Controller
             $panjang_bayi = $detail[0]->panjang_bayi;
             $berat_bayi = $detail[0]->berat_bayi;
         }
-        $this->status($baby->jenis_kelamin, $baby->tanggal_lahir);
+        // $this->status($baby->jenis_kelamin, $baby->tanggal_lahir);
+        $this->hitungIdeal(date('Y-m-d', $baby->tanggal_lahir), $baby);
         $umur = $this->hitung_umur(date('Y-m-d', $baby->tanggal_lahir));
         $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
         $data = [
@@ -316,6 +317,21 @@ class BabiesController extends Controller
             }
         }else{
             return $d." hari";
+        }
+    }
+
+    public function hitungIdeal($tanggal_lahir, Baby $baby){
+        $birthDate = new DateTime($tanggal_lahir);
+        $today = new DateTime("today");
+        if ($birthDate > $today) { 
+            exit("0 tahun 0 bulan 0 hari");
+        }
+        $y = $today->diff($birthDate)->y;
+        $m = $today->diff($birthDate)->m;
+        $d = $today->diff($birthDate)->d;
+        // var_dump($m);die;
+        if($y == 0 && $m >= 1 && $m <= 6){
+            $hasil = (int)$baby->berat_bayi+($m*600);
         }
     }
 

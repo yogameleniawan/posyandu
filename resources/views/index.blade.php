@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="Bayu Fajariyanto" />
-        <title>Posyandu</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('img/agency/favicon.ico') }}" />
+        <title>Posyandu Rajawali</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/posyandu/logo.ico') }}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -21,18 +21,18 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
                 {{-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ asset('img/agency/navbar-logo.svg') }}" alt="" /></a> --}}
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Posyandu</a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ asset('img/posyandu/logo.png') }}" alt="icon" class="mr-2">Posyandu Rajawali</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Pelayanan</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Galeri</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li> --}}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Tentang</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li> --}}
                         <li class="nav-item"><a class="btn btn-primary" href="{{ url('/login') }}">Login</a></li>
                     </ul>
                 </div>
@@ -41,42 +41,42 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <div class="masthead-subheading">Selamat Datang!</div>
+                <div class="masthead-heading text-uppercase">Yuk datang ke Posyandu</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Jelajahi</a>
             </div>
         </header>
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Pelayanan</h2>
+                    <h3 class="section-subheading text-muted">Pelayanan pokok posyandu.</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
+                        <span class="fa-stack fa-3x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-syringe fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Imunisasi</h4>
+                        <p class="text-muted">Mengembangkan kegiatan kesehatan dan kegiatan–kegiatan lain yang menunjang peningkatan kemampuan hidup sehat.</p>
                     </div>
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
+                        <span class="fa-stack fa-3x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-baby fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Kesehatan Ibu dan Anak</h4>
+                        <p class="text-muted">Meningkatkan pelayanan kesehatan ibu dan untuk menurunkan angka kematian ibu dan anak.</p>
                     </div>
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
+                        <span class="fa-stack fa-3x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-users fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Keluarga Berencana</h4>
+                        <p class="text-muted">Mempercepat penerimaan norma keluarga kecil bahagia sejahtera.</p>
                     </div>
                 </div>
             </div>
@@ -85,18 +85,15 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Galeri</h2>
+                    <h3 class="section-subheading text-muted">Beberapa kegiatan Posyandu Rajawali.</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{{ asset('img/agency/portfolio/01-thumbnail.jpg') }}" alt="" />
-                            </a>
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar1-min.jpg') }}" alt="" />
+                            </div>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Threads</div>
                                 <div class="portfolio-caption-subheading text-muted">Illustration</div>
@@ -104,6 +101,28 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar2-min.jpg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Threads</div>
+                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/agency/portfolio/01-thumbnail.jpg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Threads</div>
+                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
                                 <div class="portfolio-hover">
@@ -172,12 +191,12 @@
                                 <div class="portfolio-caption-subheading text-muted">Photography</div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
         <!-- About-->
-        <section class="page-section" id="about">
+        {{-- <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
@@ -237,9 +256,9 @@
                     </li>
                 </ul>
             </div>
-        </section>
+        </section> --}}
         <!-- Team-->
-        <section class="page-section bg-light" id="team">
+        {{-- <section class="page-section" id="team">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
@@ -281,9 +300,33 @@
                     <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
                 </div>
             </div>
+        </section> --}}
+        <section class="page-section" id="team">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3>Posyandu Rajawali</h3>
+                        {{-- <p class="text-muted">Dinas Pemberdayaan Masyarakat dan Desa</p> --}}
+                        <p class="text-muted mb-0">Senin-Jumat, 8.00 Sampai 16 WIB</p>
+                        <p class="text-muted mb-0">(0341) XXXXXXX</p>
+                        <p class="text-muted mb-0">rajawali@posyandu.com</p>
+                    </div>
+                    <div class="col-lg-4">
+                        {{-- <h3>Tentang Posyandu</h3>
+                        <p class="text-muted">Posyandu merupakan salah satu bentuk Upaya Kesehatan Berbasis Masyarakat (UKBM) yang dikelola dan diselenggarakan dari, oleh, untuk dan bersama masyarakat dalam penyelenggaraan pembangunan.</p> --}}
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>Lokasi</h3>
+                        <p class="text-muted mb-0">Posyandu Rajawali</p>
+                        <p class="text-muted mb-0">Jl. XXXXXX.</p>
+                    </div>
+                    {{-- <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div> --}}
+                </div>
+            </div>
         </section>
         <!-- Clients-->
-        <div class="py-5">
+        {{-- <div class="py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 my-3">
@@ -300,9 +343,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Contact-->
-        <section class="page-section" id="contact">
+        {{-- <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
@@ -337,22 +380,23 @@
                     </div>
                 </form>
             </div>
-        </section>
+        </section> --}}
         <!-- Footer-->
-        <footer class="footer py-4">
+        <footer class="footer py-4 bg-light">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © <a href="https://instagram.com/bayufajariyanto" class="text-decoration-none text-reset" target="_blank">Sistem Informasi Posyandu</a> <?= date('Y'); ?></div>
+                    <div class="col-lg-4 text-lg-left">Copyright © Posyandu Rajawali @if((int) date('Y')>2020) 2020 - <?= date('Y'); ?> @else <?= date('Y'); ?> @endif</div>
                     <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/bayufajariyanto" target="_blank"><i class="fab fa-instagram"></i></a>
+                        {{-- <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/bayufajariyanto" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://dribbble.com/bayufajariyanto" target="_blank"><i class="fab fa-dribbble"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://github.com/bayufajariyanto" target="_blank"><i class="fab fa-github"></i></a>
-                        {{-- <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a> --}}
                     </div>
                     <div class="col-lg-4 text-lg-right">
-                        <a class="mr-3" href="#!">Privacy Policy</a>
-                        <a href="#!">Terms of Use</a>
+                        <p>Developed by <a href="http://instagram.com/bayufajariyanto" class="text-decoration-none text-reset" target="_blank">Bayu Fajariyanto</a></p>
+                        {{-- <a class="mr-3" href="#!">Privacy Policy</a> --}}
+                        {{-- <a href="#!">Terms of Use</a> --}}
                     </div>
                 </div>
             </div>

@@ -57,11 +57,13 @@
               </tr>
             </tfoot>
             <tbody>
+               @if($progress || !$progress)
                <tr>
-                  <td class="text-center">0 (Saat Lahir)</td>
+                  <td class="text-center">0</td>
                   <td>{{ $baris->panjang_bayi}} cm</td>
                   <td>{{ $baris->berat_bayi }} kg</td>
                </tr>
+               @endif
                @if($progress)
                @foreach($progress as $p)
                <tr>

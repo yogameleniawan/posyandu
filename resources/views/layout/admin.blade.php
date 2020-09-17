@@ -251,8 +251,17 @@
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; <a href="http://instagram.com/bayufajariyanto" class="text-decoration-none text-reset">Sistem Posyandu </a>@if((int)date('Y') > 2020) 2020 - <?= date('Y'); ?>@else 2020 @endif</span>
+          <div class="row">
+            <div class="col my-auto">
+              <div class="copyright text-left mb-">
+                <span>Copyright &copy; Posyandu Rajawali </a>@if((int)date('Y') > 2020) 2020 - <?= date('Y'); ?>@else 2020 @endif</span>
+              </div>
+            </div>
+            <div class="col my-auto">
+              <div class="copyright text-right">
+                <span>Developed by <a href="http://instagram.com/bayufajariyanto" class="text-decoration-none text-reset" target="_blank"> Bayu Fajariyanto</a></span>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
