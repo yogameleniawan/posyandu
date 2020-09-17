@@ -153,11 +153,14 @@ class BabiesController extends Controller
     public function index(Request $request)
     {
         $role = $request->session()->get('role');
+        // dd($role);
         $babies = Baby::all();
         if($role === 'Admin' && $role !== 'Staff'){
             return redirect('/home');
-        }else{
+        }else if($role === 'Staff' && $role !== 'Admin'){
             return view('baby', compact('babies'));
+        }else{
+            return redirect('login');
         }
     }
 

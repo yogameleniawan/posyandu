@@ -95,8 +95,19 @@
                                 <img class="img-fluid" src="{{ asset('img/posyandu/gambar1-min.jpg') }}" alt="" />
                             </div>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">2019</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Cek berat badan anak</div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar5.jpeg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">2019</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Konsultasi Kesehatan</div> --}}
                             </div>
                         </div>
                     </div>
@@ -106,19 +117,74 @@
                                 <img class="img-fluid" src="{{ asset('img/posyandu/gambar2-min.jpg') }}" alt="" />
                             </div>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">2018</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Konsultasi Kesehatan</div> --}}
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
                             <div>
-                                <img class="img-fluid" src="{{ asset('img/agency/portfolio/01-thumbnail.jpg') }}" alt="" />
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar4.jpeg') }}" alt="" />
                             </div>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">2019</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Konsultasi Kesehatan</div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar3.jpg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">2018</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Illustration</div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar6.jpeg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">2018</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Illustration</div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar.jpg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">2019</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Illustration</div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar8.jpeg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">2018</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Illustration</div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <div>
+                                <img class="img-fluid" src="{{ asset('img/posyandu/gambar9.jpeg') }}" alt="" />
+                            </div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">2018</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Illustration</div> --}}
                             </div>
                         </div>
                     </div>
@@ -308,9 +374,8 @@
                     <div class="col-lg-4">
                         <h3>Posyandu Rajawali</h3>
                         {{-- <p class="text-muted">Dinas Pemberdayaan Masyarakat dan Desa</p> --}}
-                        <p class="text-muted mb-0">Senin-Jumat, 8.00 Sampai 16 WIB</p>
-                        <p class="text-muted mb-0">(0341) XXXXXXX</p>
-                        <p class="text-muted mb-0">rajawali@posyandu.com</p>
+                        <p class="text-muted mb-0">Senin-Jumat, 08.00 - 14.00 WIB</p>
+                        <p class="text-muted mb-0">Kamis, 08.00 - 11.00 (Minggu ke-2 saja)</p>
                     </div>
                     <div class="col-lg-4">
                         {{-- <h3>Tentang Posyandu</h3>
@@ -319,7 +384,7 @@
                     <div class="col-lg-4">
                         <h3>Lokasi</h3>
                         <p class="text-muted mb-0">Posyandu Rajawali</p>
-                        <p class="text-muted mb-0">Jl. XXXXXX.</p>
+                        <p class="text-muted mb-0">Komplek TNI-AU Kartanegara A-75 Desa Tamanharjo Kecamatan Singosari Kabupaten Malang.</p>
                     </div>
                     {{-- <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div> --}}
                 </div>
@@ -393,8 +458,7 @@
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a> --}}
                     </div>
-                    <div class="col-lg-4 text-lg-right">
-                        <p>Developed by <a href="http://instagram.com/bayufajariyanto" class="text-decoration-none text-reset" target="_blank">Bayu Fajariyanto</a></p>
+                    <div class="col-lg-4 text-lg-right">Developed by <a href="http://instagram.com/bayufajariyanto" class="mb-n2 text-decoration-none text-reset" target="_blank">Bayu Fajariyanto</a>
                         {{-- <a class="mr-3" href="#!">Privacy Policy</a> --}}
                         {{-- <a href="#!">Terms of Use</a> --}}
                     </div>

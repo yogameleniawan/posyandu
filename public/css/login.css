@@ -9,7 +9,7 @@
   }
   
   .bg-image {
-    background-image: url('/img/bg-image.jpg');
+    background-image: url('../img/posyandu/login.jpg');
     background-size: cover;
     background-position: center;
   }
