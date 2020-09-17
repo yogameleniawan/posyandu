@@ -11,7 +11,7 @@
    <title>{{ config('app.name', 'Posyandu') }}</title>
 
    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-   <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/login1.css') }}">
 </head>
 <body>    
    <div class="container-fluid">
@@ -32,7 +32,7 @@
                                              <strong>{{ $message }}</strong>
                                           </span>
                                        @enderror
-                                       <label for="email">email: admin@posyandu.com</label>
+                                       <label for="email">Email</label>
                                  </div>                                
                                  <div class="form-label-group">
                                        <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" name="password">
@@ -41,7 +41,7 @@
                                              <strong>{{ $message }}</strong>
                                           </span>
                                        @enderror
-                                       <label for="password">password: admin</label>
+                                       <label for="password">Password</label>
                                  </div>                                    
                                  <div class="custom-control custom-checkbox mb-3">
                                        <input type="checkbox" class="custom-control-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -51,9 +51,9 @@
                                     {{ __('Login') }}
                                 </button>
                                  @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                    </a> --}}
                                  @endif
                                  {{-- <a class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" href="{{ url('/baby') }}" type="submit">Sign in</a> --}}
                                  {{-- <div class="text-center">

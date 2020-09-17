@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{ asset('css/agency.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/agency1.css') }}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -28,10 +28,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Pelayanan</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Galeri</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('#services') }}">Pelayanan</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('#portfolio') }}">Galeri</a></li>
                         {{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li> --}}
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Tentang</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('#team') }}">Tentang</a></li>
                         {{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li> --}}
                         <li class="nav-item"><a class="btn btn-primary" href="{{ url('/login') }}">Login</a></li>
                     </ul>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Sep 2020 pada 12.51
+-- Waktu pembuatan: 17 Sep 2020 pada 06.19
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -78,12 +78,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_09_02_064813_create_babies_table', 1),
-(5, '2020_09_02_072934_add_soft_delete_to_babies', 1),
-(6, '2020_09_02_115439_create_progress_babies_table', 1);
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_resets_table', 1),
+(9, '2019_08_19_000000_create_failed_jobs_table', 1),
+(10, '2020_09_02_064813_create_babies_table', 1),
+(11, '2020_09_02_072934_add_soft_delete_to_babies', 1),
+(12, '2020_09_02_115439_create_progress_babies_table', 1);
 
 -- --------------------------------------------------------
 
@@ -124,6 +124,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -135,8 +136,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@posyandu.com', NULL, '$2y$10$w9d.jPquia5sGzViNAo.4eWK2uEeE2FNhtnTS4F0.Suc8CcVAXPYC', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@posyandu.com', 'Admin', NULL, '$2y$10$F9/T64QVeaXfsC6nl7qDrOSL7zlFo/UHTBgBWg8MOK87ufQ/i8.nO', NULL, NULL, NULL),
+(2, 'Staff Satu', 'staff@posyandu.com', 'Staff', NULL, '$2y$10$GnF6MlwrfLJwEquvVyiFP.vRfP99IYGmq/wMbQ9/KMW98XtxMnU/W', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -199,7 +201,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `progress_babies`
@@ -211,7 +213,7 @@ ALTER TABLE `progress_babies`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
