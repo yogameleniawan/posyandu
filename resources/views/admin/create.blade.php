@@ -30,7 +30,8 @@
                   <div class="form-group">
                      <label for="role">Role</label>
                      <select id="role" name="role" class="form-control @error('role') is-invalid @enderror" data-toggle="tooltip" data-placement="right" title="Golongan Darah Bayi">
-                        <option selected value="Staff">Staff</option>
+                        <option selected value="Staff2">Staff (Tanpa Akses Chart)</option>
+                        <option value="Staff">Staff</option>
                         <option value="Admin">Admin</option>
                      </select>
                      @error('role')<div class="invalid-feedback ml-1">{{ $message }}</div>@enderror

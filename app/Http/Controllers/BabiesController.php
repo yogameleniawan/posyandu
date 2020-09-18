@@ -11,7 +11,7 @@ use DateTime;
 
 class BabiesController extends Controller
 {
-    public function progress(Baby $baby){
+    public function progress(Baby $baby, Request $request){
         $progress = DB::table('babies AS b')
         ->join('progress_babies AS p', 'b.id', '=', 'p.id_bayi')
         ->select('b.nama', 'b.nama_ibu', 'b.nama_ayah', 'b.tempat_lahir', 'b.tanggal_lahir', 'b.anak_ke', 'b.alamat', 'b.jenis_kelamin', 'b.golongan_darah', 'p.id_bayi', 'p.bulan_ke', 'p.panjang_bayi', 'p.berat_bayi')
@@ -35,7 +35,8 @@ class BabiesController extends Controller
             $berat_bayi = $detail[0]->berat_bayi;
         }
         $dataProgress = $this->dataProgress($progress, $baby);
-        // dd($progress);
+        $session = $request->session()->get('role');
+        // dd($session);
         if($progress == null || count($progress) < 13){
             $umur = "0 - 12 Bulan";
         }else if(count($progress) > 12 && count($progress) <= 24){
@@ -53,7 +54,8 @@ class BabiesController extends Controller
             'jk' => $jk,
             'dtProgress' => $dataProgress,
             'umur' => $umur,
-            'kelamin' => $kelamin
+            'kelamin' => $kelamin,
+            'session' => $session
         ];
         echo view('progress.index', $data);
         if($baby->jenis_kelamin == 1){
@@ -155,9 +157,9 @@ class BabiesController extends Controller
         $role = $request->session()->get('role');
         // dd($role);
         $babies = Baby::all();
-        if($role === 'Admin' && $role !== 'Staff'){
+        if($role === 'Admin' && $role !== 'Staff' && $role !== 'Staff2'){
             return redirect('/home');
-        }else if($role === 'Staff' && $role !== 'Admin'){
+        }else if($role === 'Staff' || $role === 'Staff2' && $role !== 'Admin'){
             return view('baby', compact('babies'));
         }else{
             return redirect('login');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Sep 2020 pada 06.19
+-- Waktu pembuatan: 19 Sep 2020 pada 00.40
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -45,6 +45,13 @@ CREATE TABLE `babies` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `babies`
+--
+
+INSERT INTO `babies` (`id`, `nama`, `nama_ibu`, `nama_ayah`, `tempat_lahir`, `tanggal_lahir`, `anak_ke`, `alamat`, `jenis_kelamin`, `golongan_darah`, `panjang_bayi`, `berat_bayi`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Laki', 'Ibu', 'Ayah', 'Malang', 1596579840, 1, 'Malang', 1, 'BT', '50.00', '3.00', '2020-09-18 22:24:46', '2020-09-18 22:24:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -138,7 +145,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@posyandu.com', 'Admin', NULL, '$2y$10$F9/T64QVeaXfsC6nl7qDrOSL7zlFo/UHTBgBWg8MOK87ufQ/i8.nO', NULL, NULL, NULL),
-(2, 'Staff Satu', 'staff@posyandu.com', 'Staff', NULL, '$2y$10$GnF6MlwrfLJwEquvVyiFP.vRfP99IYGmq/wMbQ9/KMW98XtxMnU/W', NULL, NULL, NULL);
+(2, 'Staff Satu', 'staff@posyandu.com', 'Staff', NULL, '$2y$10$GnF6MlwrfLJwEquvVyiFP.vRfP99IYGmq/wMbQ9/KMW98XtxMnU/W', NULL, NULL, NULL),
+(3, 'Staff Dua', 'staff2@posyandu.com', 'Staff2', NULL, '$2y$10$Ql3Bgj0s7cd18pX5Xo0cceNxCSe/avjzYcvTfp50F28T.Be9oh/Em', NULL, '2020-09-18 22:28:11', '2020-09-18 22:28:11');
 
 --
 -- Indexes for dumped tables
@@ -189,7 +197,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `babies`
 --
 ALTER TABLE `babies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -213,7 +221,7 @@ ALTER TABLE `progress_babies`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

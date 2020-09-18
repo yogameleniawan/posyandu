@@ -7,7 +7,8 @@
    <!-- Page Heading -->
    <h1 class="h3 mb-2 text-gray-800">Pertumbuhan Bayi</h1>
    <p class="mb-4">Halaman ini untuk memantau pertumbuhan bayi.</p>
-
+   
+   @if($session != 'Staff2')
    <!-- Area Chart -->
    <div class="card shadow-sm mb-4">
       <!-- Card Header - Dropdown -->
@@ -33,6 +34,7 @@
          </div>
       </div>
    </div>
+   @endif
 
    <!-- DataTables Example -->
    <div class="card shadow-sm mb-4">

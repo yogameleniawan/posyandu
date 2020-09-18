@@ -59,7 +59,13 @@
                            <td class="text-center">{{ $loop->iteration }}</td>
                            <td>{{ ucwords($user->name) }}</td>
                            <td>{{ strtolower($user->email) }}</td>
-                           <td>{{ $user->role }}</td>
+                           <td>
+                              @if($user->role == 'Staff2')
+                                 Staff (Tanpa Akses Chart) 
+                              @else
+                                 {{ $user->role }}
+                              @endif
+                           </td>
                         </tr>
                         @endforeach
                      </tbody>
