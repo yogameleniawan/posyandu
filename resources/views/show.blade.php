@@ -73,7 +73,11 @@
         <div class="row container-fluid">
           <div class="col-lg-4">
             <h5><strong>Golongan Darah</strong></h5>
+            @if($baby->golongan_darah == "BT")
+            <p>Belum Tahu</p>
+            @else
             <p>{{ $baby->golongan_darah }}</p>
+            @endif
           </div>
           <div class="col-lg-4">
             <h5><strong>Tinggi Lahir</strong></h5>
@@ -109,7 +113,9 @@
     </div>
   <div class="mb-5">
     <a href="{{ url('/baby') }}" class="text-decoration-none mx-1">Kembali</a>
-    {{-- <a href="{{ url('/baby').'/'.$baby->id.'/edit' }}" class="btn btn-warning mx-1">Edit</a> --}}
+    @if(session()->get('role') == 'Staff2' || session()->get('role') == 'Staff')
+      <a href="{{ url('/baby').'/'.$baby->id.'/edit' }}" class="btn btn-warning mx-1">Edit</a>
+    @endif
     <form action="{{ $baby->id }}" method="post" class="d-inline">
       @method('delete')
       @csrf      

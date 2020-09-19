@@ -356,28 +356,29 @@ class BabiesController extends Controller
             case 2: $perempuan = 'checked';
                 break;
         }
+        // dd($baby->golongan_darah);
         $a = '';$b = '';$ab = '';$o = '';$bt = '';
         switch($baby->golongan_darah){
-            case 'a': $a = 'selected';
+            case "A": $a = 'selected';
                 break;
-            case 'b': $b = 'selected';
+            case "B": $b = 'selected';
                 break;
-            case 'ab': $ab = 'selected';
+            case "AB": $ab = 'selected';
                 break;
-            case 'o': $o = 'selected';
+            case "O": $o = 'selected';
                 break;
-            case 'bt': $bt = 'selected';
+            case "BT": $bt = 'selected';
                 break;
         }
         $data = [
             'baby' => $baby,
             'laki' => $laki,
             'perempuan' => $perempuan,
-            'a' => $a,
-            'b' => $b,
-            'ab' => $ab,
-            'o' => $o,
-            'bt' => $bt,
+            'A' => $a,
+            'B' => $b,
+            'AB' => $ab,
+            'O' => $o,
+            'BT' => $bt,
             'umur' => $umur
         ];
         return view('edit', $data);
@@ -392,7 +393,13 @@ class BabiesController extends Controller
      */
     public function update(Request $request, Baby $baby)
     {
-        return $request;
+        // update data pegawai
+        DB::table('babies')->where('id',$baby->id)->update([
+            'alamat' => $request->alamat,
+            'golongan_darah' => $request->golongan_darah
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/baby/'.$baby->id);
     }
 
     /**

@@ -17,6 +17,7 @@
          @method('patch')
          <form method="post" action="/baby/{{ $baby->id }}">
             @csrf
+            @method('put')
             <div class="row">
                <div class="col-xl-6 mr-auto">
                   <h5><strong>Informasi Pribadi</strong></h5>
@@ -95,11 +96,11 @@
                      <div class="form-group">
                         <label for="golongan_darah">Golongan Darah</label>
                         <select id="golongan_darah" name="golongan_darah" class="form-control @error('golongan_darah') is-invalid @enderror" data-toggle="tooltip" data-placement="right" title="Golongan Darah Bayi">
-                           <option value="BT" {{ $bt }}>Belum Tahu</option>
-                           <option value="A" {{ $a }}>A</option>
-                           <option value="B" {{ $b }}>B</option>
-                           <option value="AB" {{ $ab }}>AB</option>
-                           <option value="O" {{ $o }}>O</option>
+                           <option value="BT" {{ $BT }}>Belum Tahu</option>
+                           <option value="A" {{ $A }}>A</option>
+                           <option value="B" {{ $B }}>B</option>
+                           <option value="AB" {{ $AB }}>AB</option>
+                           <option value="O" {{ $O }}>O</option>
                         </select>
                         @error('golongan_darah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
@@ -113,7 +114,7 @@
                         <input type="number" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ $baby->berat_bayi }}" disabled>
                         @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
-                     <h5 class="mt-5"><strong>Perkembangan Bayi</strong></h5>
+                     {{-- <h5 class="mt-5"><strong>Perkembangan Bayi</strong></h5>
                      <hr class="divider">
                      <div class="form-group">
                         <label for="berat_bayi">Panjang Sekarang (cm)</label>
@@ -124,13 +125,13 @@
                         <label for="berat_bayi">Berat Sekarang (kg)</label>
                         <input type="number" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Ini" min="1">
                         @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
-                     </div>
+                     </div> --}}
                </div>
             </div>
             <div class="row mt-4">
                <div class="col">               
                   <div class="text-center">
-                     <button type="submit" class="btn btn-block btn-primary">Daftar</button>
+                     <button type="submit" class="btn btn-block btn-primary">Update Data</button>
                   </div>
                </div>
             </div>
