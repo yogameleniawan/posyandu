@@ -24,6 +24,11 @@ class UsersTableSeeder extends Seeder
             'email' => 'staff'.'@posyandu.com',
             'role' => 'Staff',
             'password' => Hash::make('staff'),
+        ],[
+            'name' => 'Staff',
+            'email' => 'posyandu'.'@posyandu.com',
+            'role' => 'Staff2',
+            'password' => Hash::make('posyandu'),
         ]);
     }
 }
