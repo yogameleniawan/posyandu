@@ -61,4 +61,26 @@ class HomeController extends Controller
         ]);
         return redirect('/home')->with('status', "Data '" . $request->nama . "' berhasil ditambahkan");
     }
+
+    public function edit(User $user){
+        $data = [
+            'user' => $user
+        ];
+        return view('admin/edit', $data);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'password' => 'required|min:5',
+            'konfirmasi_password' => 'required|min:5|same:password'
+        ]);
+        // $status = Hash::check($request->password, $user->password);
+        // update data pegawai
+        DB::table('users')->where('id',$user->id)->update([
+            'password' => Hash::make($request->password)
+        ]);
+        // alihkan halaman ke halaman home
+        return redirect('/home')->with('status', "Password '" . $user->name . "' berhasil diubah");
+    }
 }

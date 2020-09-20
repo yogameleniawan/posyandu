@@ -43,6 +43,7 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Role</th>
+                        <th>Role</th>
                         </tr>
                      </thead>
                      <tfoot>
@@ -50,6 +51,7 @@
                         <th>NO</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Role</th>
                         </tr>
                      </tfoot>
@@ -66,6 +68,7 @@
                                  {{ $user->role }}
                               @endif
                            </td>
+                           <td><a href="{{ url('/home/'.$user->id.'/edit') }}" class="btn btn-warning"><i class="fas fa-user-edit"></i></a></td>
                         </tr>
                         @endforeach
                      </tbody>
