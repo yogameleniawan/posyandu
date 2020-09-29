@@ -7,7 +7,16 @@
    <!-- Page Heading -->
    <h1 class="h3 mb-2 text-gray-800">Pertumbuhan Bayi</h1>
    <p class="mb-4">Halaman ini untuk memantau pertumbuhan bayi.</p>
-   
+   @if(session('status'))
+    <div class="alert alert-success">
+      {{session('status')}}
+    </div>
+  @endif
+  @if(session('danger'))
+  <div class="alert alert-danger">
+    {{session('danger')}}
+  </div>
+  @endif
    @if($session != 'Staff2')
    <!-- Area Chart -->
    <div class="card shadow-sm mb-4">
@@ -69,7 +78,7 @@
                @if($progress)
                @foreach($progress as $p)
                <tr>
-                  <td class="text-center">{{ $loop->iteration }}</td>
+                  <td class="text-center">{{ $p->bulan_ke }}</td>
                   <td>{{ $p->panjang_bayi }} cm</td>
                   <td>{{ $p->berat_bayi }} kg</td>
                </tr>
@@ -96,7 +105,7 @@
       <div class="card-body container-fluid">
          <form method="post" action="{{ url('/baby/progress') }}">
             @csrf
-            <input type="hidden" name="bulan_ke" value="{{ $bulan_ke }}">
+            {{-- <input type="hidden" name="bulan_ke" value="{{ $bulan_ke }}"> --}}
             <input type="hidden" name="id_bayi" value="{{ $baris->id }}">
             <div class="form-group">
                <label for="panjang_bayi">Tinggi Bayi (cm)</label>
@@ -107,6 +116,11 @@
                <label for="berat_bayi">Berat Bayi (kg)</label>
                <input type="number" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Bayi Sekarang" placeholder="Berat sekarang" min="1" step="any">
                @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+            </div>
+            <div class="form-group">
+               <label for="bulan_ke">Bulan Ke-</label>
+               <input type="number" class="form-control @error('bulan_ke') is-invalid @enderror" name="bulan_ke" id="bulan_ke" min="1" data-toggle="tooltip" data-placement="right" title="Berat Bayi Sekarang" placeholder="Berat sekarang" min="1" step="any">
+               @error('bulan_ke')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
             </div>
             <button type="submit" class="btn btn-block btn-primary">Simpan</button>
          </form>

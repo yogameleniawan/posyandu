@@ -30,22 +30,21 @@ class BabiesController extends Controller
             $berat_bayi = $baby->berat_bayi;
         }else{
             $progress = $progress;
-            $detail = DB::table('progress_babies')->select('panjang_bayi', 'berat_bayi')->where('id_bayi', $baby->id)->where('bulan_ke', max($bulan))->get();
-            $panjang_bayi = $detail[0]->panjang_bayi;
-            $berat_bayi = $detail[0]->berat_bayi;
+            // $detail = DB::table('progress_babies')->select('panjang_bayi', 'berat_bayi')->where('id_bayi', $baby->id)->where('bulan_ke', max($bulan))->get();
+            // $panjang_bayi = $detail[0]->panjang_bayi;
+            // $berat_bayi = $detail[0]->berat_bayi;
         }
-        $dataProgress = $this->dataProgress($progress, $baby);
+        $dataProgress = $this->chartProgress($progress, $baby, $bulan);
         $session = $request->session()->get('role');
-        // dd($session);
-        if($progress == null || count($progress) < 13){
+        if($progress == null || max($bulan) < 13){
             $umur = "0 - 12 Bulan";
-        }else if(count($progress) > 12 && count($progress) <= 24){
+        }else if(max($bulan) > 12 && max($bulan) <= 24){
             $umur = "1 - 2 Tahun";
-        }else if(count($progress) > 24 && count($progress) <= 36){
+        }else if(max($bulan) > 24 && max($bulan) <= 36){
             $umur = "2 - 3 Tahun";
-        }else if(count($progress) > 36 && count($progress) <= 48){
+        }else if(max($bulan) > 36 && max($bulan) <= 48){
             $umur = "3 - 4 Tahun";
-        }else if(count($progress) > 48 && count($progress) <= 60){
+        }else if(max($bulan) > 48 && max($bulan) <= 60){
             $umur = "4 - 5 Tahun";
         }
         $data = [
@@ -59,39 +58,75 @@ class BabiesController extends Controller
         ];
         echo view('progress.index', $data);
         if($baby->jenis_kelamin == 1){
-            if($progress == null || count($progress) < 13){
+            if($progress == null || max($bulan) < 13){
                 echo view('progress.kms-laki', $data);
-            }else if(count($progress) > 12 && count($progress) <= 24){
+            }else if(max($bulan) > 12 && max($bulan) <= 24){
+                // dd('berhasil');
                 echo view('progress.kms-laki2', $data);
-            }else if(count($progress) > 24 && count($progress) <= 36){
+            }else if(max($bulan) > 24 && max($bulan) <= 36){
                 echo view('progress.kms-laki3', $data);
-            }else if(count($progress) > 36 && count($progress) <= 48){
+            }else if(max($bulan) > 36 && max($bulan) <= 48){
                 echo view('progress.kms-laki4', $data);
-            }else if(count($progress) > 48 && count($progress) <= 60){
+            }else if(max($bulan) > 48 && max($bulan) <= 60){
                 echo view('progress.kms-laki5', $data);
             }
         }else if($baby->jenis_kelamin == 2){
-            if($progress == null || count($progress) < 13){
+            if($progress == null || max($bulan) < 13){
                 echo view('progress.kms-perempuan', $data);
-            }else if(count($progress) > 12 && count($progress) <= 24){
+            }else if(max($bulan) > 12 && max($bulan) <= 24){
                 echo view('progress.kms-perempuan2', $data);
-            }else if(count($progress) > 24 && count($progress) <= 36){
+            }else if(max($bulan) > 24 && max($bulan) <= 36){
                 echo view('progress.kms-perempuan3', $data);
-            }else if(count($progress) > 36 && count($progress) <= 48){
+            }else if(max($bulan) > 36 && max($bulan) <= 48){
                 echo view('progress.kms-perempuan4', $data);
-            }else if(count($progress) > 48 && count($progress) <= 60){
+            }else if(max($bulan) > 48 && max($bulan) <= 60){
                 echo view('progress.kms-perempuan5', $data);
             }
         }
     }
 
     public function simpanprogress(Request $request){
+        $detail = DB::table('progress_babies')->select('bulan_ke')->where('id_bayi', $request->id_bayi)->get();
+        for($i=0 ; $i<count($detail) ; $i++){
+            if($detail[$i]->bulan_ke == $request->bulan_ke){
+                return redirect('/baby/'.$request->id_bayi.'/progress')->with('danger', "Data bulan ke-".$detail[$i]->bulan_ke ." sudah ada");
+            }
+        }
+        
         $request->validate([
+            'bulan_ke' => 'required',
             'panjang_bayi' => 'required',
             'berat_bayi' => 'required'
         ]);
         ProgressBaby::create($request->all());
         return redirect('/baby/'.$request->id_bayi.'/progress')->with('status', "Data baru berhasil ditambahkan");
+    }
+
+    public function chartProgress($progress, $baby, $bulan){
+        $data[0] = $baby->berat_bayi;
+        $progressBaru[0] = 0;
+        for($i = 1; $i<=count($progress) ; $i++){
+            $progressBaru[$i] = $progress[$i-1];
+        }
+        $b = max($bulan);
+        if($progress == null){
+            for($i = 1; $i<=60 ; $i++){
+                $data[$i] = null;
+            }
+            return $data;
+        }else{
+            if(max($bulan) >=1 && max($bulan) <= 60){
+                for($i=1 ; $i<=60 ; $i++){
+                    $data[$i] = null;
+                    for($j=1 ; $j<=count($progress) ; $j++){
+                        if($i == $progressBaru[$j]->bulan_ke){
+                            $data[$i] = $progressBaru[$j]->berat_bayi;
+                        }
+                    }
+                }
+            }
+            return $data;
+        }
     }
 
     public function dataProgress($progress, $baby){
