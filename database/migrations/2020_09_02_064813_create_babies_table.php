@@ -17,7 +17,9 @@ class CreateBabiesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama', 256);
             $table->string('nama_ibu', 256);
+            $table->string('pekerjaan_ibu', 256);
             $table->string('nama_ayah', 256);
+            $table->string('pekerjaan_ayah', 256);
             $table->string('tempat_lahir', 256);
             $table->bigInteger('tanggal_lahir');
             $table->integer('anak_ke');

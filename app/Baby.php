@@ -13,7 +13,9 @@ class Baby extends Model
     protected $fillable = [
         'nama',
         'nama_ibu',
+        'pekerjaan_ibu',
         'nama_ayah',
+        'pekerjaan_ayah',
         'tempat_lahir',
         'tanggal_lahir',
         'anak_ke',

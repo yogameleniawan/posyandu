@@ -12,7 +12,7 @@
       <p class="mb-4">Pengelolaan data bayi</p>
     </div>
     <div class="col text-right">
-      <a href="{{ url('/baby/create') }}" class="btn btn-primary mt-3 shadow-sm">Tambah Data</a>
+      <a href="{{ url('/baby/create') }}" class="btn btn-primary my-3 shadow-sm">Tambah Data</a>
     </div>
   </div>
 
@@ -29,9 +29,18 @@
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
-    <div class="card-header py-3">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary">Tabel Data Bayi</h6>
-    </div>
+      <div class="dropdown no-arrow">
+         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+         </a>
+         <div class="dropdown-menu dropdown-menu-right shadow-sm animated--fade-in" aria-labelledby="dropdownMenuLink">
+            <div class="dropdown-header">Opsi:</div>
+            <a class="dropdown-item" href="{{ url('/baby/export') }}">Export ke Excel</a>
+         </div>
+      </div>
+   </div>
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

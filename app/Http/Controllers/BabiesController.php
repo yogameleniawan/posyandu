@@ -7,10 +7,16 @@ use App\Baby;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use DateTime;
+use App\Exports\BabyExport;
+use Maatwebsite\Excel\Facades\Excel;
 // use Illuminate\Foundation\Console\Presets\React;
 
 class BabiesController extends Controller
 {
+    public function export_excel(){
+        return Excel::download(new BabyExport, 'baby.xlsx');
+    }
+
     public function progress(Baby $baby, Request $request){
         $progress = DB::table('babies AS b')
         ->join('progress_babies AS p', 'b.id', '=', 'p.id_bayi')
@@ -222,7 +228,9 @@ class BabiesController extends Controller
         $request->validate([
             'nama' => 'required',
             'nama_ibu' => 'required',
+            'pekerjaan_ibu' => 'required',
             'nama_ayah' => 'required',
+            'pekerjaan_ayah' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'anak_ke' => 'required',
@@ -235,7 +243,9 @@ class BabiesController extends Controller
         
         $request->nama = ucwords($request->nama);
         $request->nama_ibu = ucwords($request->nama_ibu);
+        $request->pekerjaan_ibu = ucwords($request->pekerjaan_ibu);
         $request->nama_ayah = ucwords($request->nama_ayah);
+        $request->pekerjaan_ayah = ucwords($request->pekerjaan_ayah);
         $request->tempat_lahir = ucfirst($request->tempat_lahir);
         $request->alamat = ucfirst($request->alamat);
         
@@ -257,7 +267,9 @@ class BabiesController extends Controller
         Baby::create([
             'nama' => $request->nama,
             'nama_ibu' => $request->nama_ibu,
+            'pekerjaan_ibu' => $request->pekerjaan_ibu,
             'nama_ayah' => $request->nama_ayah,
+            'pekerjaan_ayah' => $request->pekerjaan_ayah,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'anak_ke' => $request->anak_ke,
@@ -300,7 +312,7 @@ class BabiesController extends Controller
             $berat_bayi = $detail[0]->berat_bayi;
         }
         // $this->status($baby->jenis_kelamin, $baby->tanggal_lahir);
-        $this->hitungIdeal(date('Y-m-d', $baby->tanggal_lahir), $baby);
+        // $this->hitungIdeal(date('Y-m-d', $baby->tanggal_lahir), $baby);
         $umur = $this->hitung_umur(date('Y-m-d', $baby->tanggal_lahir));
         $jk = $baby->jenis_kelamin == 1 ? 'Laki-laki' : 'Perempuan';
         $data = [
@@ -428,8 +440,16 @@ class BabiesController extends Controller
      */
     public function update(Request $request, Baby $baby)
     {
+        $request->validate([
+            'pekerjaan_ibu' => 'required',
+            'pekerjaan_ayah' => 'required',
+            'alamat' => 'required',
+            'golongan_darah' => 'required',
+        ]);
         // update data pegawai
         DB::table('babies')->where('id',$baby->id)->update([
+            'pekerjaan_ibu' => $request->pekerjaan_ibu,
+            'pekerjaan_ayah' => $request->pekerjaan_ayah,
             'alamat' => $request->alamat,
             'golongan_darah' => $request->golongan_darah
         ]);

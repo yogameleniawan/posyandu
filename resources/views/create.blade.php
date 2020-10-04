@@ -31,9 +31,19 @@
                      @error('nama_ibu')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                   </div>
                   <div class="form-group">
+                     <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
+                     <input type="text" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" id="pekerjaan_ibu" name="pekerjaan_ibu" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ibu Bayi" value="{{ old('pekerjaan_ibu') }}">
+                     @error('pekerjaan_ibu')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                  </div>
+                  <div class="form-group">
                      <label for="nama_ayah">Nama Ayah</label>
                      <input type="text" class="form-control @error('nama_ayah') is-invalid @enderror" id="nama_ayah" name="nama_ayah" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ayah Bayi" value="{{ old('nama_ayah') }}">
                      @error('nama_ayah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                  </div>
+                  <div class="form-group">
+                     <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+                     <input type="text" class="form-control @error('pekerjaan_ayah') is-invalid @enderror" id="pekerjaan_ayah" name="pekerjaan_ayah" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ayah Bayi" value="{{ old('pekerjaan_ayah') }}">
+                     @error('pekerjaan_ayah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                   </div>
                   <div class="row">
                      <div class="col-sm-6">

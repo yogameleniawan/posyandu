@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Sep 2020 pada 03.22
+-- Waktu pembuatan: 04 Okt 2020 pada 13.29
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -32,7 +32,9 @@ CREATE TABLE `babies` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_ibu` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan_ibu` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_ayah` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan_ayah` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` bigint(20) NOT NULL,
   `anak_ke` int(11) NOT NULL,
@@ -45,6 +47,15 @@ CREATE TABLE `babies` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `babies`
+--
+
+INSERT INTO `babies` (`id`, `nama`, `nama_ibu`, `pekerjaan_ibu`, `nama_ayah`, `pekerjaan_ayah`, `tempat_lahir`, `tanggal_lahir`, `anak_ke`, `alamat`, `jenis_kelamin`, `golongan_darah`, `panjang_bayi`, `berat_bayi`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Zehan Arrasya Davindra', 'Ferdiani Megasari', 'Swasta', 'Hendra Erfi Sudarji', 'Swasta', 'Pasuruan', 1595574840, 2, 'Pasuruan', 1, 'BT', '50.00', '2.60', '2020-10-04 11:15:32', '2020-10-04 11:15:32', NULL),
+(2, 'Clarissa Agiska Davindra', 'Ferdiani Megasari', 'Swasta', 'Hendra Erfi Sudarji', 'Swasta', 'Pasuruan', 1600992900, 1, 'Pasuruan', 2, 'BT', '50.00', '3.00', '2020-10-04 11:16:36', '2020-10-04 11:18:52', '2020-10-04 11:18:52'),
+(3, 'Clarissa Agiska Davindra', 'Ferdiani Megasari', 'Swasta', 'Hendra Erfi Sudarji', 'Swasta', 'Pasuruan', 1537845480, 1, 'Pasuruan', 2, 'BT', '50.00', '3.00', '2020-10-04 11:19:50', '2020-10-04 11:19:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -78,12 +89,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(13, '2014_10_12_000000_create_users_table', 1),
-(14, '2014_10_12_100000_create_password_resets_table', 1),
-(15, '2019_08_19_000000_create_failed_jobs_table', 1),
-(16, '2020_09_02_064813_create_babies_table', 1),
-(17, '2020_09_02_072934_add_soft_delete_to_babies', 1),
-(18, '2020_09_02_115439_create_progress_babies_table', 1);
+(19, '2014_10_12_000000_create_users_table', 1),
+(20, '2014_10_12_100000_create_password_resets_table', 1),
+(21, '2019_08_19_000000_create_failed_jobs_table', 1),
+(22, '2020_09_02_064813_create_babies_table', 1),
+(23, '2020_09_02_072934_add_soft_delete_to_babies', 1),
+(24, '2020_09_02_115439_create_progress_babies_table', 1);
 
 -- --------------------------------------------------------
 
@@ -137,9 +148,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@posyandu.com', 'Admin', NULL, '$2y$10$oRY.s7rgSBoj5805AqjTCuOvQRDvdkUCq5QBqi1NzRJJco.ny4sxG', NULL, NULL, NULL),
-(2, 'Staff Satu', 'staff@posyandu.com', 'Staff', NULL, '$2y$10$ZtpUMRI4gy115oaRc5Zte.2XmR5PerKJg77Iyr3HDAURr1SPAURpK', NULL, NULL, NULL),
-(3, 'Staff', 'posyandu@posyandu.com', 'Staff2', NULL, '$2y$10$FnIc50bf1vafNiiof/uKBOyzIexXf6TvFTs/DZ7b4XiHgaN5tRjry', NULL, NULL, NULL);
+(1, 'Admin', 'admin@posyandu.com', 'Admin', NULL, '$2y$10$ZdHKubvmJGpyJkp1mLiyq.9VdH.3lMfaorLKkuWvORS65bkE8Iw3y', NULL, NULL, NULL),
+(2, 'Staff Satu', 'staff@posyandu.com', 'Staff', NULL, '$2y$10$RrWVV1R9ohisVR7fbZDQR.Nirqt5w9Uh1WCbpNQrD1erO.Y1vZ5Xe', NULL, NULL, NULL),
+(3, 'Staff', 'posyandu@posyandu.com', 'Staff2', NULL, '$2y$10$r0SWsbXb/./gEGOt5fOLiOoM72hFpyLPjTxMy105Aj.bcWHMNgroq', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -190,7 +201,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `babies`
 --
 ALTER TABLE `babies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -202,7 +213,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `progress_babies`
