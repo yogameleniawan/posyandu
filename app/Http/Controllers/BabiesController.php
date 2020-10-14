@@ -26,6 +26,7 @@ class BabiesController extends Controller
         $jk = $baby->jenis_kelamin == 1 ? 'fas fa-mars' : 'fas fa-venus';
         $kelamin = $baby->jenis_kelamin == 1 ? 'Laki-Laki' : 'Perempuan';
         $i = 0;
+        $bulan = null;
         foreach($progress as $d):
             $bulan[$i] = $d->bulan_ke;
             $i++;
@@ -111,10 +112,11 @@ class BabiesController extends Controller
     public function chartProgress($progress, $baby, $bulan){
         $data[0] = $baby->berat_bayi;
         $progressBaru[0] = 0;
-        for($i = 1; $i<=count($progress) ; $i++){
-            $progressBaru[$i] = $progress[$i-1];
+        if($progress != null){
+            for($i = 1; $i<=count($progress) ; $i++){
+                $progressBaru[$i] = $progress[$i-1];
+            }
         }
-        $b = max($bulan);
         if($progress == null){
             for($i = 1; $i<=60 ; $i++){
                 $data[$i] = null;
