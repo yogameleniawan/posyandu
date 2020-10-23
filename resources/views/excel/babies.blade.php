@@ -6,7 +6,6 @@
         <th>Tanggal Lahir</th>
         <th>Jenis Kelamin</th>
         <th>Berat Lahir</th>
-        <th>Tinggi Lahir</th>
         <th>Umur</th>
         <th>Anak ke-</th>
         <th>Alamat</th>
@@ -28,7 +27,6 @@
             <td>Perempuan</td>
          @endif
          <td>{{ $baby->berat_bayi }}</td>
-         <td>{{ $baby->panjang_bayi }}</td>
          <td>{{ hitung_umur(date('Y-m-d', $baby->tanggal_lahir)) }}</td>
          <td>{{ $baby->anak_ke }}</td>
          <td>{{ $baby->alamat }}</td>
