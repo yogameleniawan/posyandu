@@ -7,14 +7,24 @@ use App\Baby;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use DateTime;
+use App\Exports;
 use App\Exports\BabyExport;
+use App\Exports\BabyIdExport;
 use Maatwebsite\Excel\Facades\Excel;
+// use \App\Export\InvoicesExport;
 // use Illuminate\Foundation\Console\Presets\React;
 
+use \App\InvoicesExport;
 class BabiesController extends Controller
 {
     public function export_excel(){
-        return Excel::download(new BabyExport, 'baby.xlsx');
+        // return (new InvoicesExport(2018))->download('invoices.xlsx');
+        return Excel::download(new BabyExport, date('Ymd').' Data Bayi.xlsx');
+        // return Excel::download(new InvoicesExport, 'baby.xlsx');
+    }
+
+    public function exportid_excel(Baby $baby){
+        return Excel::download(new BabyIdExport($baby), date('Ymd').str_replace(' ', '', $baby->nama).'.xlsx');
     }
 
     public function progress(Baby $baby, Request $request){
@@ -344,7 +354,7 @@ class BabiesController extends Controller
         $birthDate = new DateTime($tanggal_lahir);
         $today = new DateTime("today");
         if ($birthDate > $today) { 
-            exit("0 tahun 0 bulan 0 hari");
+            return "0 tahun 0 bulan 0 hari";
         }
         $y = $today->diff($birthDate)->y;
         $m = $today->diff($birthDate)->m;
@@ -443,17 +453,53 @@ class BabiesController extends Controller
     public function update(Request $request, Baby $baby)
     {
         $request->validate([
+            'nama' => 'required',
+            'nama_ibu' => 'required',
             'pekerjaan_ibu' => 'required',
+            'nama_ayah' => 'required',
             'pekerjaan_ayah' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'anak_ke' => 'required',
             'alamat' => 'required',
+            'jenis_kelamin' => 'required',
             'golongan_darah' => 'required',
+            'panjang_bayi' => 'required',
+            'berat_bayi' => 'required'
         ]);
+        
+        $request->nama = ucwords($request->nama);
+        $request->nama_ibu = ucwords($request->nama_ibu);
+        $request->pekerjaan_ibu = ucwords($request->pekerjaan_ibu);
+        $request->nama_ayah = ucwords($request->nama_ayah);
+        $request->pekerjaan_ayah = ucwords($request->pekerjaan_ayah);
+        $request->tempat_lahir = ucfirst($request->tempat_lahir);
+        $request->alamat = ucfirst($request->alamat);
+
+        $request->tanggal_lahir = mktime(
+            (int)substr($request->tanggal_lahir, 11, 2), // jam
+            (int)substr($request->tanggal_lahir, 14, 2), //menit
+            00, // detik
+            (int)substr($request->tanggal_lahir, 5, 2), // bulan
+            (int)substr($request->tanggal_lahir, 8, 2), // tanggal
+            (int)substr($request->tanggal_lahir, 0, 4) // tahun
+        );
+        
         // update data pegawai
         DB::table('babies')->where('id',$baby->id)->update([
+            'nama' => $request->nama,
+            'nama_ibu' => $request->nama_ibu,
             'pekerjaan_ibu' => $request->pekerjaan_ibu,
+            'nama_ayah' => $request->nama_ayah,
             'pekerjaan_ayah' => $request->pekerjaan_ayah,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'anak_ke' => $request->anak_ke,
             'alamat' => $request->alamat,
-            'golongan_darah' => $request->golongan_darah
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'golongan_darah' => $request->golongan_darah,
+            'panjang_bayi' => $request->panjang_bayi,
+            'berat_bayi' => $request->berat_bayi
         ]);
         // alihkan halaman ke halaman pegawai
         return redirect('/baby/'.$baby->id);

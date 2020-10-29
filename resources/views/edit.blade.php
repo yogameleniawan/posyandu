@@ -24,41 +24,53 @@
                   <hr class="divider">
                   <div class="form-group">
                      <label class="font-weight-bold" for="nama">Nama Bayi</label>
-                     <input type="disabled" class="form-control-plaintext @error('nama') is-invalid @enderror" id="nama" name="nama" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Bayi" value="{{ $baby->nama }}" readonly>
+                     <input type="disabled" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Bayi" value="{{ $baby->nama }}">
                      @error('nama')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                   </div>
-                  <div class="form-group">
-                     <label class="font-weight-bold" for="nama_ibu">Nama Ibu</label>
-                     <input type="disabled" class="form-control-plaintext @error('nama_ibu') is-invalid @enderror" id="nama_ibu" name="nama_ibu" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ibu Bayi" value="{{ $baby->nama_ibu }}" readonly>
-                     @error('nama_ibu')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="font-weight-bold" for="nama_ibu">Nama Ibu</label>
+                           <input type="disabled" class="form-control @error('nama_ibu') is-invalid @enderror" id="nama_ibu" name="nama_ibu" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ibu Bayi" value="{{ $baby->nama_ibu }}">
+                           @error('nama_ibu')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="font-weight-bold" for="pekerjaan_ibu">Pekerjaan Ibu</label>
+                           <input type="text" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" id="pekerjaan_ibu" name="pekerjaan_ibu" data-toggle="tooltip" data-placement="right" title="Pekerjaan Ibu Bayi" value="{{ $baby->pekerjaan_ibu }}">
+                           @error('pekerjaan_ibu')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                        </div>
+                     </div>
                   </div>
-                  <div class="form-group">
-                     <label class="font-weight-bold" for="pekerjaan_ibu">Pekerjaan Ibu</label>
-                     <input type="text" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" id="pekerjaan_ibu" name="pekerjaan_ibu" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ibu Bayi" value="{{ $baby->pekerjaan_ibu }}">
-                     @error('pekerjaan_ibu')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
-                  </div>
-                  <div class="form-group">
-                     <label class="font-weight-bold" for="nama_ayah">Nama Ayah</label>
-                     <input type="disabled" class="form-control-plaintext @error('nama_ayah') is-invalid @enderror" id="nama_ayah" name="nama_ayah" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ayah Bayi" value="{{ $baby->nama_ayah }}" readonly>
-                     @error('nama_ayah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
-                  </div>
-                  <div class="form-group">
-                     <label class="font-weight-bold" for="pekerjaan_ayah">Pekerjaan Ayah</label>
-                     <input type="text" class="form-control @error('pekerjaan_ayah') is-invalid @enderror" id="pekerjaan_ayah" name="pekerjaan_ayah" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ayah Bayi" value="{{ $baby->pekerjaan_ayah }}">
-                     @error('pekerjaan_ayah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="font-weight-bold" for="nama_ayah">Nama Ayah</label>
+                           <input type="disabled" class="form-control @error('nama_ayah') is-invalid @enderror" id="nama_ayah" name="nama_ayah" data-toggle="tooltip" data-placement="right" title="Nama Lengkap Ayah Bayi" value="{{ $baby->nama_ayah }}">
+                           @error('nama_ayah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="font-weight-bold" for="pekerjaan_ayah">Pekerjaan Ayah</label>
+                           <input type="text" class="form-control @error('pekerjaan_ayah') is-invalid @enderror" id="pekerjaan_ayah" name="pekerjaan_ayah" data-toggle="tooltip" data-placement="right" title="Pekerjaan Ayah Bayi" value="{{ $baby->pekerjaan_ayah }}">
+                           @error('pekerjaan_ayah')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
+                        </div>
+                     </div>
                   </div>
                   <div class="row">
                      <div class="col-sm-6">
                         <div class="form-group">
                            <label class="font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
-                           <input type="disabled" class="form-control-plaintext @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" data-toggle="tooltip" data-placement="right" title="Tempat Lahir Bayi" value="{{ $baby->tempat_lahir }}" readonly>
+                           <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" data-toggle="tooltip" data-placement="right" title="Tempat Lahir Bayi" value="{{ $baby->tempat_lahir }}">
                            @error('tempat_lahir')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                         </div>
                      </div>
                      <div class="col-sm-6">                        
                         <div class="form-group">
                            <label class="font-weight-bold" for="tanggal_lahir">Tanggal Lahir</label>
-                        <input type="disabled" class="form-control-plaintext @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" data-toggle="tooltip" data-placement="right" title="Tanggal Lahir Bayi" value="<?= date('d-m-Y', $baby->tanggal_lahir)." ".date('H:i', $baby->tanggal_lahir) ?>" readonly>
+                        <input type="datetime-local" class="form-control tanggal_lahir @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" data-toggle="tooltip" data-placement="right" title="Tanggal Lahir Bayi" value="{{ date('Y-m-d\TH:i', $baby->tanggal_lahir) }}" max="{{ date('Y-m-d\TH:i') }}">
                            @error('tanggal_lahir')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                         </div>
                      </div>
@@ -67,14 +79,14 @@
                      <div class="col-4">   
                         <div class="form-group">
                            <label class="font-weight-bold" for="anak_ke">Anak ke-</label>
-                           <input type="disabled" class="form-control-plaintext @error('anak_ke') is-invalid @enderror" name="anak_ke" id="anak_ke" data-toggle="tooltip" data-placement="right" title="Anak Ke-" value="{{ $baby->anak_ke }}" readonly>
+                           <input type="disabled" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke" id="anak_ke" data-toggle="tooltip" data-placement="right" title="Anak Ke-" value="{{ $baby->anak_ke }}">
                            @error('anak_ke')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                         </div>
                      </div>
                      <div class="col-8">   
                         <div class="form-group">
                            <label class="font-weight-bold" for="anak_ke">Usia Bayi</label>
-                           <input type="disabled" class="form-control-plaintext @error('anak_ke') is-invalid @enderror" name="anak_ke" id="anak_ke" data-toggle="tooltip" data-placement="right" title="Anak Ke-" value="{{ $umur }}" readonly>
+                           <input type="disabled" class="form-control-plaintext @error('anak_ke') is-invalid @enderror" id="anak_ke" data-toggle="tooltip" data-placement="right" title="Anak Ke-" value="{{ $umur }}">
                            @error('anak_ke')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                         </div>
                      </div>
@@ -91,14 +103,14 @@
                   <label class="font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
                   <div class="form-group mt-2">
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="1" {{ $laki }} disabled>
-                        <label class="form-check-label" for="laki" disabled>
+                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="1" {{ $laki }}>
+                        <label class="form-check-label" for="laki">
                           Laki-laki
                         </label>
                      </div>
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="2" {{ $perempuan }} disabled>
-                         <label class="form-check-label" for="perempuan" disabled>
+                         <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="2" {{ $perempuan }}>
+                         <label class="form-check-label" for="perempuan">
                           Perempuan
                         </label>
                       </div>
@@ -116,12 +128,12 @@
                      </div>
                      <div class="form-group">
                         <label class="font-weight-bold" for="panjang_bayi">Panjang Lahir (cm)</label>
-                        <input type="number" placeholder="dalam cm" class="form-control-plaintext @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Tinggi Badan Bayi Saat Lahir" value="{{ $baby->panjang_bayi }}" readonly>
+                        <input type="number" placeholder="dalam cm" class="form-control @error('panjang_bayi') is-invalid @enderror" name="panjang_bayi" id="panjang_bayi" data-toggle="tooltip" data-placement="right" title="Tinggi Badan Bayi Saat Lahir" value="{{ $baby->panjang_bayi }}">
                         @error('panjang_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
                      <div class="form-group">
                         <label class="font-weight-bold" for="berat_bayi">Berat Lahir (kg)</label>
-                        <input type="number" placeholder="dalam kg" class="form-control-plaintext @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ $baby->berat_bayi }}" readonly>
+                        <input type="number" placeholder="dalam kg" class="form-control @error('berat_bayi') is-invalid @enderror" name="berat_bayi" id="berat_bayi" data-toggle="tooltip" data-placement="right" title="Berat Badan Bayi Saat Lahir" value="{{ $baby->berat_bayi }}">
                         @error('berat_bayi')<div class="invalid-feedback ml-1">Bidang ini wajib diisi</div>@enderror
                      </div>
                      {{-- <h5 class="mt-5"><strong>Perkembangan Bayi</strong></h5>

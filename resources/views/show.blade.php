@@ -18,7 +18,22 @@
   <!-- DataTales Example -->
   <div class="card shadow-sm mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Informasi Pribadi</h6>
+      <div class="row">
+        <div class="col">
+          <h6 class="m-0 font-weight-bold text-primary">Informasi Pribadi</h6>
+        </div>
+        <div class="col text-right">
+          <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow-sm animated--fade-in" aria-labelledby="dropdownMenuLink">
+               <div class="dropdown-header">Opsi:</div>
+               <a class="dropdown-item" href="{{ url('/baby/'.$baby->id.'/export') }}">Export ke Excel</a>
+            </div>
+         </div>
+        </div>
+      </div>
     </div>
     <div class="card-body">
       <div class="row container-fluid">
