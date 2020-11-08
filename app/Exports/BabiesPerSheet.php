@@ -1,22 +1,21 @@
 <?php
 namespace App\Exports;
 use App\Baby;
-use DateTime;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class InvoicesPerMonthSheet implements FromQuery, WithTitle, ShouldAutoSize, WithHeadings
+class BabiesPerSheet implements FromQuery, WithTitle, ShouldAutoSize, WithHeadings
 {
-    private $year;
-    private $month;
+    private $id;
+    private $nama;
 
-    public function __construct(int $year, String $month)
+    public function __construct(int $id, String $nama)
     {
-        $this->year  = $year;
-        $this->month  = $month;
+        $this->id  = $id;
+        $this->nama  = $nama;
     }
 
     /**
@@ -25,8 +24,7 @@ class InvoicesPerMonthSheet implements FromQuery, WithTitle, ShouldAutoSize, Wit
     public function query()
     {
         return DB::table('babies')->orderBy('id')
-            ->whereYear('created_at', $this->year)
-            ->whereMonth('created_at', $this->month);
+            ->where('id', $this->id);
     }
 
     /**
@@ -35,7 +33,7 @@ class InvoicesPerMonthSheet implements FromQuery, WithTitle, ShouldAutoSize, Wit
     public function title(): string
     {   
         // $data = DB::table('babies')->select('nama')->where('id', $this->id)->first();
-        return DateTime::createFromFormat('!m',$this->month)->format('F');
+        return $this->nama;
     }
 
     public function headings(): array

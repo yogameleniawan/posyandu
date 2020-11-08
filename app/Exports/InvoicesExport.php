@@ -1,19 +1,20 @@
 <?php
-namespace App;
-
-use App\Exports\BabyExport;
+namespace App\Exports;
+use App\Baby;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Illuminate\Support\Facades\DB;
 
-class InvoicesExport implements WithMultipleSheets
+class InvoicesExport implements WithMultipleSheets,ShouldAutoSize
 {
     use Exportable;
 
-    // protected $year;
+    protected $year;
     
-    public function __construct()
+    public function __construct(int $year)
     {
-        // $this->year = $year;
+        $this->year = $year;
     }
 
     /**
@@ -24,7 +25,7 @@ class InvoicesExport implements WithMultipleSheets
         $sheets = [];
 
         for ($month = 1; $month <= 12; $month++) {
-            $sheets[] = new BabyExport();
+            $sheets[] = new InvoicesPerMonthSheet($this->year,$month);
         }
 
         return $sheets;

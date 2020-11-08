@@ -27,11 +27,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $users = DB::table('users')->orderBy('role', 'desc')->where('email', '!=', $request->session()->get('email'))->get();
+        $request->session()->put('role','Staff2');
         $role = $request->session()->get('role');
-
+        
         if($role === 'Staff' || $role === 'Staff2' && $role !== 'Admin'){
             return redirect('/baby');
         }else{
+
             return view('home', compact('users'));
         }
     }

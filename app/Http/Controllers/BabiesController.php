@@ -11,20 +11,30 @@ use App\Exports;
 use App\Exports\BabyExport;
 use App\Exports\BabyIdExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UserMultipleExport;
+
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 // use \App\Export\InvoicesExport;
 // use Illuminate\Foundation\Console\Presets\React;
 
-use \App\InvoicesExport;
+use App\Exports\BabiesExport;
+use App\Exports\InvoicesExport;
+
 class BabiesController extends Controller
 {
+    use Exportable;
+
     public function export_excel(){
-        // return (new InvoicesExport(2018))->download('invoices.xlsx');
-        return Excel::download(new BabyExport, date('Ymd').' Data Bayi.xlsx');
+        // return Excel::download(new UserMultipleExport(2020), 'Data Bayi.xlsx');
+        // return (new InvoicesExport())->download('invoices.xlsx');
+        // return Excel::download(new BabyExport, date('Ymd').' Data Bayi.xlsx');
+        return Excel::download(new BabiesExport, date('Ymd').' Data Bayi.xlsx');
         // return Excel::download(new InvoicesExport, 'baby.xlsx');
     }
 
     public function exportid_excel(Baby $baby){
-        return Excel::download(new BabyIdExport($baby), date('Ymd').str_replace(' ', '', $baby->nama).'.xlsx');
+        return Excel::download(new InvoicesExport(2020), date('Ymd').str_replace(' ', '', $baby->nama).'.xlsx');
     }
 
     public function progress(Baby $baby, Request $request){
@@ -274,7 +284,6 @@ class BabiesController extends Controller
         // $baby->nama_ibu = $request->nama_ibu;
         // $baby->nama_ayah = $request->nama_ayah;
         // $baby->save();
-
 
         Baby::create([
             'nama' => $request->nama,
