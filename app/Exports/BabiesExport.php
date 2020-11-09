@@ -11,10 +11,12 @@ class BabiesExport implements WithMultipleSheets,ShouldAutoSize
     use Exportable;
 
     // protected $year;
+    // protected $baby;
     
-    // public function __construct(int $year)
+    // public function __construct($baby)
     // {
-    //     $this->year = $year;
+    //     // $this->year = $year;
+    //     $this->baby = $baby;
     // }
 
     /**
@@ -23,17 +25,13 @@ class BabiesExport implements WithMultipleSheets,ShouldAutoSize
     public function sheets(): array
     {
         $users = DB::table('babies')->count();
-        $data = DB::table('babies')->select('id','nama')->get();
+        $data = DB::table('babies')->select('id','nama')
+        ->whereNull('deleted_at')
+        ->get();
         $sheets = [];
-
         foreach($data as $d):
             $sheets[] = new BabiesPerSheet($d->id, $d->nama);
         endforeach;
-
-        // for ($id = 1; $id <= $users; $id++) {
-        //     $sheets[] = new InvoicesPerMonthSheet($id);
-        // }
-
         return $sheets;
     }
 }

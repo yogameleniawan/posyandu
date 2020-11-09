@@ -34,7 +34,7 @@ class BabiesController extends Controller
     }
 
     public function exportid_excel(Baby $baby){
-        return Excel::download(new InvoicesExport(2020), date('Ymd').str_replace(' ', '', $baby->nama).'.xlsx');
+        return Excel::download(new BabyIdExport($baby), date('Ymd').str_replace(' ', '', $baby->nama).'.xlsx');
     }
 
     public function progress(Baby $baby, Request $request){
