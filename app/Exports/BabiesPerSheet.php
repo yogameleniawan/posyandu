@@ -33,7 +33,7 @@ class BabiesPerSheet implements FromView, WithTitle, ShouldAutoSize, WithHeading
         $bayi = DB::table('babies')->where('id', $this->id)->get();
         $progress = DB::table('babies AS b')
         ->join('progress_babies AS p', 'b.id', '=', 'p.id_bayi')
-        ->select('b.nama', 'b.nama_ibu', 'b.nama_ayah', 'b.tempat_lahir', 'b.tanggal_lahir', 'b.anak_ke', 'b.alamat', 'b.jenis_kelamin', 'b.golongan_darah', 'p.id_bayi', 'p.bulan_ke', 'p.panjang_bayi', 'p.berat_bayi')
+        ->select('b.nama', 'b.nama_ibu', 'b.nama_ayah', 'b.tempat_lahir', 'b.tanggal_lahir', 'b.anak_ke', 'b.alamat', 'b.jenis_kelamin', 'b.golongan_darah', 'p.id_bayi', 'p.bulan_ke', 'p.panjang_bayi', 'p.berat_bayi', 'p.created_at')
         ->where('id_bayi', $this->id)->orderBy('p.bulan_ke')
         ->get();
 
@@ -72,6 +72,7 @@ class BabiesPerSheet implements FromView, WithTitle, ShouldAutoSize, WithHeading
                 'Pekerjaan Ibu',
                 'Nama Ayah',
                 'Pekerjaan Ayah',
+                'Dibuat Tanggal'
             ],
         ];
     }

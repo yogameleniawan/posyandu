@@ -14,6 +14,7 @@
         <th>Pekerjaan Ibu</th>
         <th>Nama Ayah</th>
         <th>Pekerjaan Ayah</th>
+        <th>Dibuat Tanggal</th>
       </tr>
    </thead>
    <tbody>
@@ -40,6 +41,7 @@
          <td>{{ $baby->pekerjaan_ibu }}</td>
          <td>{{ $baby->nama_ayah }}</td>
          <td>{{ $baby->pekerjaan_ayah }}</td>
+         <td>{{ $baby->created_at }}</td>
       </tr>
       @endforeach
    </tbody>
